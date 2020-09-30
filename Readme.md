@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Константин Кандрук](https://up.htmlacademy.ru/react/5/user/1168091).
-* Наставник: `Неизвестно`.
+* Наставник: [Богдан Волик](https://htmlacademy.ru/profile/id997699).
 
 ---
 
