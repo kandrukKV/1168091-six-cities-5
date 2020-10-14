@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 import PlaceCardList from "../place-card-list/place-card-list";
 import Map from "../map/map";
@@ -20,11 +21,11 @@ const Main = (props) => {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
+                  <NavLink to="/favorites" className="header__nav-link header__nav-link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </nav>

@@ -22,7 +22,7 @@ const PlaceCard = (props) => {
 
   return (
     <article className="cities__place-card place-card" onMouseOver={()=> onMouseOverHandler(card)}>
-      <PremiumLabel isPremium={isPremium} labelClass={`place-card`}/>
+      {isPremium && <PremiumLabel className={`place-card`}/>}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={generalPhoto.src} width="260" height="200" alt={generalPhoto.alt}/>
@@ -36,7 +36,7 @@ const PlaceCard = (props) => {
           </div>
           <CardBookmarkButton isFavorite={isFavorite}/>
         </div>
-        <Rating rating={rating} ratingClass={`place-card`}/>
+        <Rating rating={rating} className={`place-card`}/>
         <h2 className="place-card__name">
           <a href="#">{title}</a>
         </h2>
