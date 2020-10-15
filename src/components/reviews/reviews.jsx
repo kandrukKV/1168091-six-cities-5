@@ -21,7 +21,7 @@ const Reviews = (props) => {
                   </span>
                 </div>
                 <div className="reviews__info">
-                  <Rating rating={review.rating} ratingClass={`reviews`}/>
+                  <Rating rating={review.rating} className={`reviews`}/>
                   <p className="reviews__text">
                     {review.text}
                   </p>

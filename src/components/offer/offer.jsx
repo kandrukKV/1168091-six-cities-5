@@ -12,7 +12,6 @@ const Offer = (props) => {
 
   const {card, reviews} = props;
 
-
   return (
     <div className="page">
       <header className="header">
@@ -26,11 +25,11 @@ const Offer = (props) => {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
+                  <NavLink to="/favorites" className="header__nav-link header__nav-link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
@@ -55,7 +54,7 @@ const Offer = (props) => {
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              <PremiumLabel isPremium={card.isPremium} labelClass={`property`}/>
+              {card.isPremium && <PremiumLabel className={`property`}/>}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {card.title}
@@ -68,7 +67,7 @@ const Offer = (props) => {
                 </button>
               </div>
 
-              <Rating rating={card.rating} ratingClass={`property`}/>
+              <Rating rating={card.rating} className={`property`}/>
 
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">

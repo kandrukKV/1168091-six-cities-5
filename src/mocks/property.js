@@ -59,13 +59,21 @@ const owners = [
 
 ];
 
+const COORDINATES = [
+  [52.3909553943508, 4.85309666406198],
+  [52.369553943508, 4.85309666406198],
+  [52.3909553943508, 4.929309666406198],
+  [52.3809553943508, 4.939309666406198]
+];
+
 const getOffers = () => {
   const temp = [];
-  for (let id = 0; id <= 10; id++) {
+  for (let id = 0; id < 4; id++) {
     const city = getRandomElementOfArray(CITYES);
     temp.push({
       id,
       city,
+      coordinates: COORDINATES[id],
       type: getRandomElementOfArray(APARTMENT_TYPES),
       price: getRandomInteger(120, 350),
       isPremium: getRandomInteger() ? true : false,
