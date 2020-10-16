@@ -16,11 +16,24 @@ class PlaceCardList extends PureComponent {
   }
 
   render() {
-    const {cards} = this.props;
+    const {
+      cards,
+      listClassName = `cities__places-list`,
+      itemClassName = `cities__place-card`,
+      wrapClassName = `cities`
+    } = this.props;
+
     return (
-      <div className="cities__places-list places__list tabs__content">
+      <div className={`${listClassName} places__list`}>
         {
-          cards.map((card) => <PlaceCard key={card.id} card={card} onMouseOverHandler={this.onMouseOverHandler}/>)
+          cards.map((card) =>
+            <PlaceCard
+              key={card.id}
+              itemClassName={itemClassName}
+              wrapClassName={wrapClassName}
+              card={card}
+              onMouseOverHandler={this.onMouseOverHandler}
+            />)
         }
       </div>
     );
@@ -28,7 +41,10 @@ class PlaceCardList extends PureComponent {
 }
 
 PlaceCardList.propTypes = {
-  cards: PropTypes.array.isRequired
+  cards: PropTypes.array.isRequired,
+  listClassName: PropTypes.string,
+  itemClassName: PropTypes.string,
+  wrapClassName: PropTypes.string
 };
 
 export default PlaceCardList;

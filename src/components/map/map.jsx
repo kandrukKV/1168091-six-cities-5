@@ -6,11 +6,11 @@ import 'leaflet/dist/leaflet.css';
 class Map extends PureComponent {
   constructor(props) {
     super(props);
-    this.cards = props.cards;
   }
 
   componentDidMount() {
     const center = [52.38333, 4.9];
+    const {cards} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -37,7 +37,7 @@ class Map extends PureComponent {
       .addTo(map);
 
 
-    this.cards.forEach((card) => {
+    cards.forEach((card) => {
       leaflet
         .marker(card.coordinates, {icon})
         .addTo(map);
@@ -46,8 +46,11 @@ class Map extends PureComponent {
   }
 
   render() {
+
+    const {className} = this.props;
+
     return (
-      <section id="map" className="cities__map map"></section>
+      <section id="map" className={`${className}__map map`}></section>
     );
   }
 }
@@ -55,8 +58,9 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
-    coordinates: PropTypes.array.isRequired
-  }))
+    coordinates: PropTypes.array.isRequired,
+  })),
+  className: PropTypes.string.isRequired
 };
 
 export default Map;

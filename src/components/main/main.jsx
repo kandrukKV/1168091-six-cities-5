@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import PlaceCardList from "../place-card-list/place-card-list";
 import Map from "../map/map";
 
-const Main = (props) => {
-
-  const {rentaOffersNumber, cards} = props;
+const Main = ({rentaOffersNumber, cards}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -92,11 +90,11 @@ const Main = (props) => {
                 </ul>
               </form>
 
-              <PlaceCardList cards={cards}/>
+              <PlaceCardList cards={cards} className={`cities`}/>
 
             </section>
             <div className="cities__right-section">
-              <Map cards={cards}/>
+              <Map cards={cards} className={`cities`}/>
             </div>
           </div>
         </div>
