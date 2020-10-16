@@ -33,7 +33,7 @@ const App = (props) => {
         <Route
           exact
           path='/offer/:id?'
-          render={() => <Offer card={cards[0]} reviews={reviews}/>}
+          render={() => <Offer card={cards[0]} reviews={reviews} nearPlaces={[cards[0], cards[2], cards[3]]}/>}
         />
 
         <Route>

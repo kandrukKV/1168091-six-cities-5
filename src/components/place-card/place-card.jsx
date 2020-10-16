@@ -1,12 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import CardBookmarkButton from "../card-bookmark-button/card-bookmark-button";
+import BookmarkButton from "../bookmark-button/bookmark-button";
 import Rating from "../rating/rating";
 import PremiumLabel from "../premium-label/premium-label";
+import placeCardProp from "../place-card/place-card.prop";
 
-const PlaceCard = (props) => {
-  const {card, onMouseOverHandler} = props;
+const PlaceCard = ({card, onMouseOverHandler, itemClassName, wrapClassName}) => {
   const {
     id,
     type,
@@ -21,9 +21,9 @@ const PlaceCard = (props) => {
   const generalPhoto = photos[0];
 
   return (
-    <article className="cities__place-card place-card" onMouseOver={()=> onMouseOverHandler(card)}>
+    <article className={`${itemClassName} place-card`} onMouseOver={()=> onMouseOverHandler(card)}>
       {isPremium && <PremiumLabel className={`place-card`}/>}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${wrapClassName}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={generalPhoto.src} width="260" height="200" alt={generalPhoto.alt}/>
         </Link>
@@ -34,7 +34,7 @@ const PlaceCard = (props) => {
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <CardBookmarkButton isFavorite={isFavorite}/>
+          <BookmarkButton isFavorite={isFavorite}/>
         </div>
         <Rating rating={rating} className={`place-card`}/>
         <h2 className="place-card__name">
@@ -47,20 +47,10 @@ const PlaceCard = (props) => {
 };
 
 PlaceCard.propTypes = {
-  card: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    photos: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired
-    }))
-  }),
-  onMouseOverHandler: PropTypes.func.isRequired
+  card: placeCardProp,
+  onMouseOverHandler: PropTypes.func.isRequired,
+  itemClassName: PropTypes.string.isRequired,
+  wrapClassName: PropTypes.string.isRequired
 };
 
 export default PlaceCard;
