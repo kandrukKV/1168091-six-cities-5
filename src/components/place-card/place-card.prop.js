@@ -13,7 +13,7 @@ export default PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string
   })),
-  badrooms: PropTypes.number.isRequired,
+  bedrooms: PropTypes.number.isRequired,
   adults: PropTypes.number.isRequired,
   additions: PropTypes.array.isRequired,
   owner: PropTypes.shape({

@@ -18,7 +18,7 @@ class BookmarkButton extends PureComponent {
     const buttonClassActive = this.state.isFavorite ? `${className}__bookmark-button--active` : ``;
     return (
       <button className={`${className}__bookmark-button ${buttonClassActive} button`} type="button">
-        <svg className={`${className}__bookmark-icon`} width={width} height={height}>
+        <svg className={`place-card__bookmark-icon`} width={width} height={height}>
           <use xlinkHref="#icon-bookmark"></use>
         </svg>
         <span className="visually-hidden">To bookmarks</span>

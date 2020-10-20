@@ -9,17 +9,14 @@ import Offer from "../offer/offer";
 
 const App = (props) => {
 
-  const {rentaOffersNumber, cards, reviews} = props;
+  const {cards, reviews} = props;
   const favoriteCards = cards.filter((card) => card.isFavorite === true);
   return (
     <BrowserRouter>
       <Switch>
 
         <Route exact path='/'>
-          <Main
-            cards={cards}
-            rentaOffersNumber={rentaOffersNumber}
-          />
+          <Main/>
         </Route>
 
         <Route exact path='/login'>
@@ -61,7 +58,7 @@ App.propTypes = {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string
     })),
-    badrooms: PropTypes.number.isRequired,
+    bedrooms: PropTypes.number.isRequired,
     adults: PropTypes.number.isRequired,
     additions: PropTypes.array.isRequired,
     owner: PropTypes.shape({
