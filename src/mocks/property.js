@@ -1,5 +1,5 @@
 const AVATAR_URL = `https://api.adorable.io/avatars/128`;
-const CITYES = [`Amsterdam`, `Paris`, `Cologne`, `Brussels`, `Hamburg`, `Dusseldorf`];
+export const CITIES = [`Amsterdam`, `Paris`, `Cologne`, `Brussels`, `Hamburg`, `Dusseldorf`];
 const APARTMENT_TYPES = [`Apartment`, `Studio`, `Room`];
 const ADDITIONS = [`Wi-Fi`, `Heatting`, `Kitchen`, `Fridge`, `Washing machine`, `Coffe machine`, `Dishwasher`, `Towels`, `Baby seat`, `Cabel TV`];
 
@@ -69,7 +69,7 @@ const COORDINATES = [
 const getOffers = () => {
   const temp = [];
   for (let id = 0; id < 4; id++) {
-    const city = getRandomElementOfArray(CITYES);
+    const city = getRandomElementOfArray(CITIES);
     temp.push({
       id,
       city,
@@ -81,7 +81,7 @@ const getOffers = () => {
       rating: getRandomInteger(0, 10),
       title: `Beutiful & luxurious apartment in ${city}`,
       photos: getPhotos(),
-      badrooms: getRandomInteger(1, 4),
+      bedrooms: getRandomInteger(1, 4),
       adults: getRandomInteger(1, 6),
       additions: shuffleArray(ADDITIONS).slice(0, getRandomInteger(1, ADDITIONS.length)),
       owner: getRandomElementOfArray(owners),

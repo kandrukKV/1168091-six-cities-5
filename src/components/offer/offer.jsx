@@ -70,7 +70,7 @@ const Offer = ({card, reviews, nearPlaces}) => {
 
               <Rating rating={card.rating} className={`property`}/>
 
-              <PropertyFeatures type={card.type} badrooms={card.badrooms} adults={card.adults}/>
+              <PropertyFeatures type={card.type} bedrooms={card.bedrooms} adults={card.adults}/>
 
               <div className="property__price">
                 <b className="property__price-value">&euro;{card.price}</b>
