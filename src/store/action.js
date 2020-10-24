@@ -1,6 +1,8 @@
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS`,
+  CHANGE_SORT_TYPE: `CHANGE_SORT_TYPE`,
+  SET_ACTIVE_CARD: `SET_ACTIVE_CARD`
 };
 
 export const ActionCreator = {
@@ -10,6 +12,14 @@ export const ActionCreator = {
   }),
   getOffers: () => ({
     type: ActionType.GET_OFFERS
+  }),
+  changeSortType: (sortType) => ({
+    type: ActionType.CHANGE_SORT_TYPE,
+    payload: sortType
+  }),
+  setActiveCard: (activeCard) => ({
+    type: ActionType.SET_ACTIVE_CARD,
+    payload: activeCard
   })
 };
 
