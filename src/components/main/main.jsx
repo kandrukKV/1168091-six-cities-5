@@ -5,21 +5,22 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 import CitiesList from "../cities-list/cities-list";
 import PlaceCardList from "../place-card-list/place-card-list";
-import Filters from "../filters/filters";
+import PlacesInfo from "../places-info/places-info";
+import Sorting from "../sorting/sorting";
 import Map from "../map/map";
-import {getOffersCurrentCity} from "../../utils";
+import {getOffersCurrentCity, sorting} from "../../utils";
 
 const Main = (props) => {
   const {
     cards,
     currentCity,
     cities,
-    filters,
-    activeFilter,
-    changeCity
+    currentSortType,
+    changeCity,
+    changeSortType
   } = props;
 
-  const filteredCards = getOffersCurrentCity(cards, currentCity);
+  const filteredCards = sorting[currentSortType](getOffersCurrentCity(cards, currentCity).slice());
 
   return (
     <div className="page page--gray page--main">
@@ -56,11 +57,9 @@ const Main = (props) => {
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{cards.lendth} places to stay in Amsterdam</b>
-              <Filters filters={filters} activeFilter={activeFilter}/>
+              <PlacesInfo cards={filteredCards} cityName={currentCity}/>
+              <Sorting currentSortType={currentSortType} changeSortType={changeSortType}/>
               <PlaceCardList cards={filteredCards} className={`cities`}/>
-
             </section>
             <div className="cities__right-section">
               <Map cards={filteredCards} className={`cities`}/>
@@ -77,12 +76,15 @@ const mapStateToProps = (state) => ({
   currentCity: state.currentCity,
   cities: state.cities,
   filters: state.filters,
-  activeFilter: state.activeFilter
+  currentSortType: state.currentSortType
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeCity(city) {
     dispatch(ActionCreator.changeCity(city));
+  },
+  changeSortType(filterName) {
+    dispatch(ActionCreator.changeSortType(filterName));
   }
 });
 
@@ -90,9 +92,9 @@ Main.propTypes = {
   cards: PropTypes.array.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
-  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
-  activeFilter: PropTypes.string.isRequired,
-  changeCity: PropTypes.func.isRequired
+  currentSortType: PropTypes.string.isRequired,
+  changeCity: PropTypes.func.isRequired,
+  changeSortType: PropTypes.func.isRequired,
 };
 
 export {Main};

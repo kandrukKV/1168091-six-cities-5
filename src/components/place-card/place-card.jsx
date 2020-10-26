@@ -21,7 +21,7 @@ const PlaceCard = ({card, onMouseOverHandler, itemClassName, wrapClassName}) => 
   const generalPhoto = photos[0];
 
   return (
-    <article className={`${itemClassName} place-card`} onMouseOver={()=> onMouseOverHandler(card)}>
+    <article className={`${itemClassName} place-card`} onMouseOver={()=> onMouseOverHandler(card)} onMouseOut={() => onMouseOverHandler(null)}>
       {isPremium && <PremiumLabel className={`place-card`}/>}
       <div className={`${wrapClassName}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>

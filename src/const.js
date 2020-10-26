@@ -25,7 +25,7 @@ export const FILTER_ITEMS = [
   `Top rated first`
 ];
 
-export const Filter = {
+export const SortType = {
   POPULAR: `Popular`,
   PRICE_LOW_TO_HIGHT: `Price: low to high`,
   PRICE_HIGHT_TO_LOW: `Price: high to low`,

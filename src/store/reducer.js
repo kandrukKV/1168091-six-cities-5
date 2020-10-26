@@ -1,14 +1,14 @@
 import {extend} from "../utils";
 import {ActionType} from "./action";
-import {Filter} from "../const";
+import {SortType} from "../const";
 import offers, {CITIES} from "../mocks/property";
 
 const initialState = {
   offers,
   currentCity: `Amsterdam`,
   cities: CITIES,
-  filters: Object.values(Filter),
-  activeFilter: Filter.POPULAR
+  currentSortType: SortType.POPULAR,
+  activeCard: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,6 +19,14 @@ const reducer = (state = initialState, action) => {
       });
     case ActionType.GET_OFFERS:
       return state.offers;
+    case ActionType.CHANGE_SORT_TYPE:
+      return extend(state, {
+        currentSortType: action.payload
+      });
+    case ActionType.SET_ACTIVE_CARD:
+      return extend(state, {
+        activeCard: action.payload
+      });
   }
 
   return state;
