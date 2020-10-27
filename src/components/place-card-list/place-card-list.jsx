@@ -1,42 +1,33 @@
-import React, {PureComponent} from "react";
-import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
 
-class PlaceCardList extends PureComponent {
+const PlaceCardList = (props) => {
 
-  render() {
-    const {
-      cards,
-      listClassName = `cities__places-list`,
-      itemClassName = `cities__place-card`,
-      wrapClassName = `cities`,
-      changeActiveCard
-    } = this.props;
+  const {
+    cards,
+    listClassName = `cities__places-list`,
+    itemClassName = `cities__place-card`,
+    wrapClassName = `cities`,
+    changeActiveCard
+  } = props;
 
-    return (
-      <div className={`${listClassName} places__list`}>
-        {
-          cards.map((card) =>
-            <PlaceCard
-              key={card.id}
-              itemClassName={itemClassName}
-              wrapClassName={wrapClassName}
-              card={card}
-              onMouseOverHandler={changeActiveCard}
-            />)
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div className={`${listClassName} places__list`}>
+      {
+        cards.map((card) =>
+          <PlaceCard
+            key={card.id}
+            itemClassName={itemClassName}
+            wrapClassName={wrapClassName}
+            card={card}
+            onMouseOverHandler={changeActiveCard}
+          />)
+      }
+    </div>
+  );
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  changeActiveCard(activeCard) {
-    dispatch(ActionCreator.setActiveCard(activeCard));
-  }
-});
 
 PlaceCardList.propTypes = {
   cards: PropTypes.array.isRequired,
@@ -46,5 +37,4 @@ PlaceCardList.propTypes = {
   wrapClassName: PropTypes.string
 };
 
-export {PlaceCardList};
-export default connect(null, mapDispatchToProps)(PlaceCardList);
+export default PlaceCardList;

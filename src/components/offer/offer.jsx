@@ -10,11 +10,13 @@ import ReviewForm from "../review-form/review-form";
 import MeetTheHost from "../meet-the-host/meet-the-host";
 import PropertyFeatures from "../property-features/property-features";
 import placeCardProp from "../place-card/place-card.prop";
+import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import BookmarkButton from "../bookmark-button/bookmark-button";
 import Map from "../map/map";
 
 const ReviewFormWrapped = withReviewForm(ReviewForm);
+const PlaceCardListWrapped = withPlaceCardList(PlaceCardList);
 
 const Offer = ({card, reviews, nearPlaces}) => {
 
@@ -94,7 +96,7 @@ const Offer = ({card, reviews, nearPlaces}) => {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <PlaceCardList
+            <PlaceCardListWrapped
               listClassName="near-places__list"
               itemClassName="near-places__card"
               wrapClassName="near-places"

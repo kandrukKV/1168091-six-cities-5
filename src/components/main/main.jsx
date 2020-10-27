@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 import CitiesList from "../cities-list/cities-list";
+import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import PlacesInfo from "../places-info/places-info";
 import Sort from "../sort/sort";
@@ -12,6 +13,7 @@ import Map from "../map/map";
 import {getCurrentCityOffers, sortOfersBy} from "../../utils";
 
 const SortWrapped = withSort(Sort);
+const PlaceCardListWrapped = withPlaceCardList(PlaceCardList);
 
 const Main = (props) => {
   const {
@@ -62,7 +64,7 @@ const Main = (props) => {
             <section className="cities__places places">
               <PlacesInfo cards={filteredCards} cityName={currentCity}/>
               <SortWrapped currentSortType={currentSortType} changeSortType={changeSortType}/>
-              <PlaceCardList cards={filteredCards} className={`cities`}/>
+              <PlaceCardListWrapped cards={filteredCards} className={`cities`}/>
             </section>
             <div className="cities__right-section">
               <Map cards={filteredCards} className={`cities`}/>
