@@ -4,11 +4,16 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 import CitiesList from "../cities-list/cities-list";
+import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import PlacesInfo from "../places-info/places-info";
-import Sorting from "../sorting/sorting";
+import Sort from "../sort/sort";
+import withSort from "../hocs/with-sort/with-sort";
 import Map from "../map/map";
-import {getOffersCurrentCity, sorting} from "../../utils";
+import {getCurrentCityOffers, sortOfersBy} from "../../utils";
+
+const SortWrapped = withSort(Sort);
+const PlaceCardListWrapped = withPlaceCardList(PlaceCardList);
 
 const Main = (props) => {
   const {
@@ -20,7 +25,7 @@ const Main = (props) => {
     changeSortType
   } = props;
 
-  const filteredCards = sorting[currentSortType](getOffersCurrentCity(cards, currentCity).slice());
+  const filteredCards = sortOfersBy[currentSortType](getCurrentCityOffers(cards, currentCity).slice());
 
   return (
     <div className="page page--gray page--main">
@@ -58,8 +63,8 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <PlacesInfo cards={filteredCards} cityName={currentCity}/>
-              <Sorting currentSortType={currentSortType} changeSortType={changeSortType}/>
-              <PlaceCardList cards={filteredCards} className={`cities`}/>
+              <SortWrapped currentSortType={currentSortType} changeSortType={changeSortType}/>
+              <PlaceCardListWrapped cards={filteredCards} className={`cities`}/>
             </section>
             <div className="cities__right-section">
               <Map cards={filteredCards} className={`cities`}/>
