@@ -5,6 +5,7 @@ import Rating from "../rating/rating";
 import PremiumLabel from "../premium-label/premium-label";
 import Additions from "../additions/additions";
 import ReviewsList from "../reviews-list/reviews-list";
+import withReviewForm from "../hocs/with-review-form/with-review-form";
 import ReviewForm from "../review-form/review-form";
 import MeetTheHost from "../meet-the-host/meet-the-host";
 import PropertyFeatures from "../property-features/property-features";
@@ -12,6 +13,8 @@ import placeCardProp from "../place-card/place-card.prop";
 import PlaceCardList from "../place-card-list/place-card-list";
 import BookmarkButton from "../bookmark-button/bookmark-button";
 import Map from "../map/map";
+
+const ReviewFormWrapped = withReviewForm(ReviewForm);
 
 const Offer = ({card, reviews, nearPlaces}) => {
 
@@ -82,7 +85,7 @@ const Offer = ({card, reviews, nearPlaces}) => {
               <MeetTheHost/>
               <section className="property__reviews reviews">
                 <ReviewsList reviews={reviews}/>
-                <ReviewForm/>
+                <ReviewFormWrapped/>
               </section>
             </div>
           </div>

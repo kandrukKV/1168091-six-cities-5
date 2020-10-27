@@ -7,8 +7,11 @@ import CitiesList from "../cities-list/cities-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import PlacesInfo from "../places-info/places-info";
 import Sort from "../sort/sort";
+import withSort from "../hocs/with-sort/with-sort";
 import Map from "../map/map";
 import {getCurrentCityOffers, sortOfersBy} from "../../utils";
+
+const SortWrapped = withSort(Sort);
 
 const Main = (props) => {
   const {
@@ -58,7 +61,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <PlacesInfo cards={filteredCards} cityName={currentCity}/>
-              <Sort currentSortType={currentSortType} changeSortType={changeSortType}/>
+              <SortWrapped currentSortType={currentSortType} changeSortType={changeSortType}/>
               <PlaceCardList cards={filteredCards} className={`cities`}/>
             </section>
             <div className="cities__right-section">
