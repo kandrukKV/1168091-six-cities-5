@@ -5,9 +5,6 @@ import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
 
 class PlaceCardList extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const {
@@ -35,9 +32,6 @@ class PlaceCardList extends PureComponent {
   }
 }
 
-const mapStateToProps = () => ({
-});
-
 const mapDispatchToProps = (dispatch) => ({
   changeActiveCard(activeCard) {
     dispatch(ActionCreator.setActiveCard(activeCard));
@@ -53,4 +47,4 @@ PlaceCardList.propTypes = {
 };
 
 export {PlaceCardList};
-export default connect(mapStateToProps, mapDispatchToProps)(PlaceCardList);
+export default connect(null, mapDispatchToProps)(PlaceCardList);

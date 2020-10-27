@@ -5,6 +5,7 @@ import Main from "../main/main";
 import Login from "../login/login";
 import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
+import PageNotFound from "../page-not-found/page-not-found";
 
 
 const App = (props) => {
@@ -34,7 +35,7 @@ const App = (props) => {
         />
 
         <Route>
-          <h1>Page not found</h1>
+          <PageNotFound/>
         </Route>
 
       </Switch>
@@ -44,7 +45,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  rentaOffersNumber: PropTypes.number.isRequired,
+  rentOffersNumber: PropTypes.number.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     city: PropTypes.string.isRequired,

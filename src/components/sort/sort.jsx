@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {SortType} from "../../const";
 
-class Sorting extends PureComponent {
+class Sort extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,9 +61,9 @@ class Sorting extends PureComponent {
   }
 }
 
-Sorting.propTypes = {
+Sort.propTypes = {
   currentSortType: PropTypes.string.isRequired,
   changeSortType: PropTypes.func.isRequired
 };
 
-export default Sorting;
+export default Sort;

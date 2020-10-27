@@ -6,9 +6,9 @@ import {ActionCreator} from "../../store/action";
 import CitiesList from "../cities-list/cities-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import PlacesInfo from "../places-info/places-info";
-import Sorting from "../sorting/sorting";
+import Sort from "../sort/sort";
 import Map from "../map/map";
-import {getOffersCurrentCity, sorting} from "../../utils";
+import {getCurrentCityOffers, sortOfersBy} from "../../utils";
 
 const Main = (props) => {
   const {
@@ -20,7 +20,7 @@ const Main = (props) => {
     changeSortType
   } = props;
 
-  const filteredCards = sorting[currentSortType](getOffersCurrentCity(cards, currentCity).slice());
+  const filteredCards = sortOfersBy[currentSortType](getCurrentCityOffers(cards, currentCity).slice());
 
   return (
     <div className="page page--gray page--main">
@@ -58,7 +58,7 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <PlacesInfo cards={filteredCards} cityName={currentCity}/>
-              <Sorting currentSortType={currentSortType} changeSortType={changeSortType}/>
+              <Sort currentSortType={currentSortType} changeSortType={changeSortType}/>
               <PlaceCardList cards={filteredCards} className={`cities`}/>
             </section>
             <div className="cities__right-section">

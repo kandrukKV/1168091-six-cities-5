@@ -10,7 +10,7 @@ import cards from "./mocks/property";
 import reviews from "./mocks/reviews";
 
 const Settings = {
-  RENTA_OFFERS_NUMBER: cards.length
+  RENT_OFFERS_NUMBER: cards.length
 };
 
 const store = createStore(
@@ -21,7 +21,7 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
       <App
-        rentaOffersNumber={Settings.RENTA_OFFERS_NUMBER}
+        rentOffersNumber={Settings.RENT_OFFERS_NUMBER}
         cards={cards}
         reviews={reviews}
       />
