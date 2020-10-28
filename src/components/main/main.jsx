@@ -23,7 +23,7 @@ const Main = (props) => {
   return (
     <div className="page page--gray page--main">
       <Header/>
-      <main className={`page__main page__main--index ${filteredCards.length ? `` : `page__main--index-empty`}`}>
+      <main className={`page__main page__main--index ${filteredCards.length || `page__main--index-empty`}`}>
         <CitiesList
           cities={cities}
           currentCity={currentCity}
