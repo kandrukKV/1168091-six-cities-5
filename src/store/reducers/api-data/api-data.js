@@ -1,4 +1,4 @@
-import {extend, adaptDataToClient} from "../../../utils";
+import {extend} from "../../../utils";
 import {ActionType} from "../../action";
 import {AuthorizationStatus} from "../../../const";
 
@@ -15,7 +15,7 @@ const apiData = (state = initialState, action) => {
       });
     case ActionType.LOAD_OFFERS:
       return extend(state, {
-        offers: adaptDataToClient(action.payload)
+        offers: action.payload
       });
     default:
       return state;

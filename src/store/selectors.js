@@ -1,6 +1,6 @@
 import {NameSpace} from "./reducers/reducer";
 import {createSelector} from 'reselect';
-import {getCurrentCityOffers, sortOfersBy} from "../utils";
+import {getCurrentCityOffers, sortOfersBy, adaptDataToClient} from "../utils";
 
 export const getOffers = (state) => state[NameSpace.API_DATA].offers;
 
@@ -14,8 +14,13 @@ export const getCurrentSortType = (state) => state[NameSpace.APP_STATE].currentS
 
 export const getActiveCard = (state) => state[NameSpace.APP_STATE].activeCard;
 
-export const getFilteredOffers = createSelector(
+const adaptedOffers = createSelector(
     getOffers,
+    (offers) => adaptDataToClient(offers)
+);
+
+export const getFilteredOffers = createSelector(
+    adaptedOffers,
     getCurrentCity,
     getCurrentSortType,
     (offers, currentCity, currentSortType) => sortOfersBy[currentSortType](getCurrentCityOffers(offers, currentCity).slice())
