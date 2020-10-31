@@ -1,24 +1,20 @@
-import {extend} from "../utils";
-import {ActionType} from "./action";
-import {SortType} from "../const";
-import offers, {CITIES} from "../mocks/property";
+import {extend} from "../../../utils";
+import {ActionType} from "../../action";
+import {SortType, CITIES} from "../../../const";
 
 const initialState = {
-  offers,
   currentCity: `Amsterdam`,
   cities: CITIES,
   currentSortType: SortType.POPULAR,
   activeCard: null
 };
 
-const reducer = (state = initialState, action) => {
+const appState = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return extend(state, {
         currentCity: action.payload
       });
-    case ActionType.GET_OFFERS:
-      return state.offers;
     case ActionType.CHANGE_SORT_TYPE:
       return extend(state, {
         currentSortType: action.payload
@@ -27,9 +23,9 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         activeCard: action.payload
       });
+    default:
+      return state;
   }
-
-  return state;
 };
 
-export {reducer};
+export {appState};

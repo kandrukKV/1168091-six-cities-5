@@ -1,28 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import {createAPI} from "./services/api";
+import {requiredAuthorizationAction} from "./store/action";
+import {fetchOffersList} from "./store/api-actions";
+import {AuthorizationStatus} from "./const";
 import App from "./components/app/app";
 
-import {reducer} from "./store/reducer";
+import reducer from "./store/reducers/reducer";
 
-import cards from "./mocks/property";
 import reviews from "./mocks/reviews";
 
-const Settings = {
-  RENT_OFFERS_NUMBER: cards.length
-};
+const api = createAPI(
+    () => store.dispatch(requiredAuthorizationAction(AuthorizationStatus.NO_AUTH))
+);
 
 const store = createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    // window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    applyMiddleware(thunk.withExtraArgument(api))
 );
+
+store.dispatch(fetchOffersList());
 
 ReactDOM.render(
     <Provider store={store}>
       <App
-        rentOffersNumber={Settings.RENT_OFFERS_NUMBER}
-        cards={cards}
         reviews={reviews}
       />
     </Provider>,
