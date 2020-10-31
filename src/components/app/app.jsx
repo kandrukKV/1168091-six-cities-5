@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Main from "../main/main";
 import Login from "../login/login";
@@ -8,9 +7,8 @@ import Offer from "../offer/offer";
 import PageNotFound from "../page-not-found/page-not-found";
 
 
-const App = (props) => {
+const App = () => {
 
-  const {reviews} = props;
   const favoriteCards = [];
   return (
     <BrowserRouter>
@@ -31,7 +29,7 @@ const App = (props) => {
         <Route
           exact
           path='/offer/:id?'
-          render={() => <Offer card={{}} reviews={reviews} nearPlaces={[{}, {}, {}]}/>}
+          render={() => <Offer card={{}} reviews={[]} nearPlaces={[{}, {}, {}]}/>}
         />
 
         <Route>
@@ -42,10 +40,6 @@ const App = (props) => {
     </BrowserRouter>
 
   );
-};
-
-App.propTypes = {
-  reviews: PropTypes.array
 };
 
 export default App;

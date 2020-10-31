@@ -11,8 +11,6 @@ import App from "./components/app/app";
 
 import reducer from "./store/reducers/reducer";
 
-import reviews from "./mocks/reviews";
-
 const api = createAPI(
     () => store.dispatch(requiredAuthorizationAction(AuthorizationStatus.NO_AUTH))
 );
@@ -27,9 +25,7 @@ store.dispatch(fetchOffersList());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        reviews={reviews}
-      />
+      <App/>
     </Provider>,
     document.querySelector(`#root`)
 );
