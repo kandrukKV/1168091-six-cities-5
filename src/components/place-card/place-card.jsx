@@ -15,17 +15,15 @@ const PlaceCard = ({card, onMouseOverHandler, itemClassName, wrapClassName}) => 
     isFavorite,
     rating,
     title,
-    photos
+    previewImage
   } = card;
-
-  const generalPhoto = photos[0];
 
   return (
     <article className={`${itemClassName} place-card`} onMouseOver={()=> onMouseOverHandler(card)} onMouseOut={() => onMouseOverHandler(null)}>
       {isPremium && <PremiumLabel className={`place-card`}/>}
       <div className={`${wrapClassName}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
-          <img className="place-card__image" src={generalPhoto.src} width="260" height="200" alt={generalPhoto.alt}/>
+          <img className="place-card__image" src={previewImage} width="260" height="200"/>
         </Link>
       </div>
       <div className="place-card__info">

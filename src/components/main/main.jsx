@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import {changeCityAction, changeSortTypeAction} from "../../store/action";
 import Header from "../header/header";
 import CitiesList from "../cities-list/cities-list";
 import OffersContent from "../offers-content/offers-content";
 import OffersContentEmpty from "../offers-content-empty/offers-content-empty";
-import {getCurrentCityOffers, sortOfersBy} from "../../utils";
+import {getCurrentCity, getCities, getCurrentSortType, getFilteredOffers} from "../../store/selectors";
 
 const Main = (props) => {
   const {
@@ -18,12 +18,10 @@ const Main = (props) => {
     changeSortType
   } = props;
 
-  const filteredCards = sortOfersBy[currentSortType](getCurrentCityOffers(cards, currentCity).slice());
-
   return (
     <div className="page page--gray page--main">
       <Header/>
-      <main className={`page__main page__main--index ${filteredCards.length || `page__main--index-empty`}`}>
+      <main className={`page__main page__main--index ${cards.length || `page__main--index-empty`}`}>
         <CitiesList
           cities={cities}
           currentCity={currentCity}
@@ -31,9 +29,9 @@ const Main = (props) => {
         />
 
         {
-          filteredCards.length ?
+          cards.length ?
             <OffersContent
-              filteredCards={filteredCards}
+              filteredCards={cards}
               currentCity={currentCity}
               currentSortType={currentSortType}
               changeSortType={changeSortType}
@@ -48,19 +46,18 @@ const Main = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  cards: state.offers,
-  currentCity: state.currentCity,
-  cities: state.cities,
-  filters: state.filters,
-  currentSortType: state.currentSortType
+  cards: getFilteredOffers(state),
+  currentCity: getCurrentCity(state),
+  cities: getCities(state),
+  currentSortType: getCurrentSortType(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeCity(city) {
-    dispatch(ActionCreator.changeCity(city));
+    dispatch(changeCityAction(city));
   },
   changeSortType(filterName) {
-    dispatch(ActionCreator.changeSortType(filterName));
+    dispatch(changeSortTypeAction(filterName));
   }
 });
 

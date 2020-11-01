@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../../store/action";
+import {setActiveCardAction} from "../../../store/action";
 
 const withPlaceCardList = (Component) => {
   class WithPlaceCardList extends PureComponent {
@@ -15,7 +15,7 @@ const withPlaceCardList = (Component) => {
 
   const mapDispatchToProps = (dispatch) => ({
     changeActiveCard(activeCard) {
-      dispatch(ActionCreator.setActiveCard(activeCard));
+      dispatch(setActiveCardAction(activeCard));
     }
   });
 

@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {getActiveCard} from "../../store/selectors";
 import leaflet from "leaflet";
 import 'leaflet/dist/leaflet.css';
 
@@ -33,7 +34,7 @@ class Map extends PureComponent {
       }
 
       this.markers.push(
-          leaflet.marker(card.coordinates, {icon})
+          leaflet.marker([card.location.latitude, card.location.longitude], {icon})
       );
     });
   }
@@ -51,19 +52,22 @@ class Map extends PureComponent {
     this.markers = [];
   }
 
+  _setCityLocation(cards) {
+    if (cards.length) {
+      const {location} = cards[0].city;
+      this.map.setView([location.latitude, location.longitude], location.zoom);
+    }
+  }
+
   componentDidMount() {
-    const center = [52.38333, 4.9];
     const {cards} = this.props;
-    const zoom = 12;
 
     this.map = leaflet.map(`map`, {
-      center,
-      zoom,
       zoomControl: false,
       marker: true
     });
 
-    this.map.setView(center, zoom);
+    this._setCityLocation(cards);
 
     leaflet
       .tileLayer(
@@ -81,8 +85,8 @@ class Map extends PureComponent {
 
   componentDidUpdate() {
     const {cards} = this.props;
-    const center = [52.38333, 4.9];
-    this.map.setView(center, 12);
+
+    this._setCityLocation(cards);
 
     this._removeMarkers();
     this._createMarkers(cards);
@@ -99,13 +103,15 @@ class Map extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  activeCard: state.activeCard
+  activeCard: getActiveCard(state)
 });
-
 
 Map.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
-    coordinates: PropTypes.array.isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }),
   })),
   className: PropTypes.string.isRequired,
   activeCard: PropTypes.oneOfType([
