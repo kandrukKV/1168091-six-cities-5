@@ -3,7 +3,9 @@ export const ActionType = {
   CHANGE_SORT_TYPE: `CHANGE_SORT_TYPE`,
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
-  LOAD_OFFERS: `LOAD_OFFERS`
+  LOAD_OFFERS: `LOAD_OFFERS`,
+  SET_AUTH_INFO: `SET_AUTH_INFO`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 export const changeCityAction = (city) => ({
@@ -29,4 +31,14 @@ export const requiredAuthorizationAction = (status) => ({
 export const loadOffersAction = (offers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: offers
+});
+
+export const setAuthInfo = (authInfo) => ({
+  type: ActionType.SET_AUTH_INFO,
+  payload: authInfo
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url
 });

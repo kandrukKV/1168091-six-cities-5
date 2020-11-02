@@ -1,10 +1,10 @@
 import {NameSpace} from "./reducers/reducer";
 import {createSelector} from 'reselect';
-import {getCurrentCityOffers, sortOfersBy, adaptDataToClient} from "../utils";
+import {getCurrentCityOffers, sortOfersBy, adaptOffersToClient} from "../utils";
 
 export const getOffers = (state) => state[NameSpace.API_DATA].offers;
 
-export const getAuthorizationStatus = (state) => state[NameSpace.API_DATA].authorizationStatus;
+export const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
 
 export const getCurrentCity = (state) => state[NameSpace.APP_STATE].currentCity;
 
@@ -14,9 +14,11 @@ export const getCurrentSortType = (state) => state[NameSpace.APP_STATE].currentS
 
 export const getActiveCard = (state) => state[NameSpace.APP_STATE].activeCard;
 
+export const getAuthInfo = (state) => state[NameSpace.USER].authInfo;
+
 const adaptedOffers = createSelector(
     getOffers,
-    (offers) => adaptDataToClient(offers)
+    (offers) => adaptOffersToClient(offers)
 );
 
 export const getFilteredOffers = createSelector(

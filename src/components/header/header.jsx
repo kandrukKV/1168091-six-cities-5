@@ -1,29 +1,28 @@
 import React from "react";
+import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
+import {getAuthInfo} from "../../store/selectors";
+import {AppRoute} from "../../const";
 
-const Header = (props) => {
-  const {
-    toLink = `/login`,
-    userName = `Sign in`
-  } = props;
+const Header = ({authInfo}) => {
 
   return (
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <NavLink to="/" className="header__logo-link header__logo-link--active">
+            <NavLink to={AppRoute.ROOT} className="header__logo-link header__logo-link--active">
               <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
             </NavLink>
           </div>
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <NavLink to={toLink} className="header__nav-link header__nav-link--profile">
+                <NavLink to={AppRoute.FAVORITES} className="header__nav-link header__nav-link--profile">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span className="header__user-name user__name">{userName}</span>
+                  <span className="header__user-name user__name">{authInfo ? authInfo.email : `Sign in`}</span>
                 </NavLink>
               </li>
             </ul>
@@ -35,8 +34,17 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  toLink: PropTypes.string,
-  userName: PropTypes.string
+  authInfo: PropTypes.oneOfType([
+    PropTypes.oneOf([null]).isRequired,
+    PropTypes.shape({
+      email: PropTypes.string.isRequired
+    }).isRequired
+  ])
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  authInfo: getAuthInfo(state)
+});
+
+export {Header};
+export default connect(mapStateToProps)(Header);

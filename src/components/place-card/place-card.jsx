@@ -5,6 +5,7 @@ import BookmarkButton from "../bookmark-button/bookmark-button";
 import Rating from "../rating/rating";
 import PremiumLabel from "../premium-label/premium-label";
 import placeCardProp from "../place-card/place-card.prop";
+import {AppRoute} from "../../const";
 
 const PlaceCard = ({card, onMouseOverHandler, itemClassName, wrapClassName}) => {
   const {
@@ -22,7 +23,7 @@ const PlaceCard = ({card, onMouseOverHandler, itemClassName, wrapClassName}) => 
     <article className={`${itemClassName} place-card`} onMouseOver={()=> onMouseOverHandler(card)} onMouseOut={() => onMouseOverHandler(null)}>
       {isPremium && <PremiumLabel className={`place-card`}/>}
       <div className={`${wrapClassName}__image-wrapper place-card__image-wrapper`}>
-        <Link to={`/offer/${id}`}>
+        <Link to={`${AppRoute.OFFER}/${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200"/>
         </Link>
       </div>
