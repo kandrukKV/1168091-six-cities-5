@@ -12,7 +12,7 @@ const SortWrapped = withSort(Sort);
 
 const OffersContent = (props) => {
   const {
-    filteredCards,
+    cards,
     currentCity,
     currentSortType,
     changeSortType
@@ -22,12 +22,12 @@ const OffersContent = (props) => {
     <div className="cities">
       <div className="cities__places-container container">
         <section className="cities__places places">
-          <PlacesInfo cards={filteredCards} cityName={currentCity}/>
+          <PlacesInfo cards={cards} cityName={currentCity}/>
           <SortWrapped currentSortType={currentSortType} changeSortType={changeSortType}/>
-          <PlaceCardListWrapped cards={filteredCards} className={`cities`}/>
+          <PlaceCardListWrapped cards={cards} className={`cities`}/>
         </section>
         <div className="cities__right-section">
-          <Map cards={filteredCards} className={`cities`}/>
+          <Map cards={cards} className={`cities`}/>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ const OffersContent = (props) => {
 };
 
 OffersContent.propTypes = {
-  filteredCards: PropTypes.array.isRequired,
+  cards: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   currentSortType: PropTypes.string.isRequired,
   changeSortType: PropTypes.func.isRequired,

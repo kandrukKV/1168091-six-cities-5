@@ -31,7 +31,7 @@ const Main = (props) => {
         {
           cards.length ?
             <OffersContent
-              filteredCards={cards}
+              cards={cards}
               currentCity={currentCity}
               currentSortType={currentSortType}
               changeSortType={changeSortType}
