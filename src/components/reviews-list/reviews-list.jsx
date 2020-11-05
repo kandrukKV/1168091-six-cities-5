@@ -8,7 +8,7 @@ const ReviewsList = ({reviews}) => {
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
         {
-          reviews.map((review) => <Review key={review.id} review={review}/>)
+          reviews.map((review) => <Review key={`rev-${review.id}`} review={review}/>)
         }
       </ul>
     </Fragment>
@@ -16,9 +16,7 @@ const ReviewsList = ({reviews}) => {
 };
 
 ReviewsList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired
-  }).isRequired)
+  reviews: PropTypes.array.isRequired
 };
 
 export default ReviewsList;

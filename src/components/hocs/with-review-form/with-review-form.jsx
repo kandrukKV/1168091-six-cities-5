@@ -1,4 +1,8 @@
 import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
+import {getAuthorizationStatus} from "../../../store/selectors";
+import {AuthorizationStatus} from "../../../const";
+import {connect} from "react-redux";
 
 const withReviewForm = (Component) => {
   class WithReviewForm extends PureComponent {
@@ -25,11 +29,19 @@ const withReviewForm = (Component) => {
 
     render() {
       const {rating, value, isSubmit} = this.state;
+
+      const {authorizationStatus} = this.props;
+
+      if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
+        return null;
+      }
+
       return (
         <Component
           rating={rating}
           value={value}
           isSubmit={isSubmit}
+          authorizationStatus={authorizationStatus}
           onChangeRating={this.handleChangeRating}
           onChangeTextArea={this.handleChangeTextarea}
         />
@@ -37,7 +49,15 @@ const withReviewForm = (Component) => {
     }
   }
 
-  return WithReviewForm;
+  const mapStateToProps = (state) => ({
+    authorizationStatus: getAuthorizationStatus(state)
+  });
+
+  WithReviewForm.propTypes = {
+    authorizationStatus: PropTypes.string.isRequired
+  };
+
+  return connect(mapStateToProps)(WithReviewForm);
 };
 
 export default withReviewForm;

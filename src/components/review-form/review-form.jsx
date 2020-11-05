@@ -10,8 +10,9 @@ const ReviewForm = (props) => {
     value,
     isSubmit,
     onChangeRating,
-    onChangeTextArea
+    onChangeTextArea,
   } = props;
+
   const isDisabled = Boolean(!value || !rating || isSubmit);
 
   return (
@@ -57,7 +58,7 @@ ReviewForm.propTypes = {
   value: PropTypes.string,
   isSubmit: PropTypes.bool.isRequired,
   onChangeRating: PropTypes.func.isRequired,
-  onChangeTextArea: PropTypes.func.isRequired
+  onChangeTextArea: PropTypes.func.isRequired,
 };
 
 export default ReviewForm;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Rating = (props) => {
   const {rating, className} = props;
-  const currentRating = Math.round(rating * 10);
+  const currentRating = Math.round(rating * 20);
   return (
     <div className={`${className}__rating rating`}>
       <div className={`${className}__stars rating__stars`}>

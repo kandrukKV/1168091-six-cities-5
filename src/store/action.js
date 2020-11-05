@@ -6,6 +6,8 @@ export const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   SET_AUTH_INFO: `SET_AUTH_INFO`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  LOAD_FAVORITE_OFFERS: `SET_FAVORITE_OFFERS`,
+  LOAD_OFFER_DETAILS: `LOAD_OFFER_DETAILS`
 };
 
 export const changeCityAction = (city) => ({
@@ -33,12 +35,22 @@ export const loadOffersAction = (offers) => ({
   payload: offers
 });
 
-export const setAuthInfo = (authInfo) => ({
+export const setAuthInfoAction = (authInfo) => ({
   type: ActionType.SET_AUTH_INFO,
   payload: authInfo
 });
 
-export const redirectToRoute = (url) => ({
+export const redirectToRouteAction = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url
+});
+
+export const loadFavoriteOffersAction = (offers) => ({
+  type: ActionType.LOAD_FAVORITE_OFFERS,
+  payload: offers
+});
+
+export const loadOfferDetailsAction = (offerDeatails) => ({
+  type: ActionType.LOAD_OFFER_DETAILS,
+  payload: offerDeatails
 });

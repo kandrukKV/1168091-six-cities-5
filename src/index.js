@@ -5,7 +5,7 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
-import {requiredAuthorizationAction, setAuthInfo} from "./store/action";
+import {requiredAuthorizationAction, setAuthInfoAction} from "./store/action";
 import {fetchOffersList, checkAuth} from "./store/api-actions";
 import {AuthorizationStatus} from "./const";
 import App from "./components/app/app";
@@ -16,7 +16,7 @@ import reducer from "./store/reducers/reducer";
 const api = createAPI(
     () => {
       store.dispatch(requiredAuthorizationAction(AuthorizationStatus.NO_AUTH));
-      store.dispatch(setAuthInfo(null));
+      store.dispatch(setAuthInfoAction(null));
     }
 );
 

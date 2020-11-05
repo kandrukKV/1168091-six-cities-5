@@ -16,7 +16,7 @@ export const SortType = {
 
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
+  NO_AUTH: `NO_AUTH`
 };
 
 export const CITIES = [`Amsterdam`, `Paris`, `Cologne`, `Brussels`, `Hamburg`, `Dusseldorf`];
@@ -31,4 +31,5 @@ export const AppRoute = {
 export const APIRoute = {
   HOTELS: `/hotels`,
   LOGIN: `/login`,
+  FAVORITE: `/favorite`,
 };

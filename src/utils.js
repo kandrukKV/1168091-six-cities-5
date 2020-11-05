@@ -15,23 +15,36 @@ export const sortOfersBy = {
   [SortType.TOP_RATED_FIRST]: (cards) => cards.sort((a, b) => b.rating - a.rating)
 };
 
-export const adaptOffersToClient = (cards) => {
-  return cards.map((card) => {
-    return {
-      id: card.id,
-      isFavorite: card.is_favorite,
-      isPremium: card.is_premium,
-      previewImage: card.preview_image,
-      adults: card.max_adults,
-      title: card.title,
-      type: card.type,
-      price: card.price,
-      bedrooms: card.bedrooms,
-      goods: card.goods,
-      description: card.description,
-      city: card.city,
-      rating: card.rating,
-      location: card.location
-    };
-  });
+export const adaptOfferToClient = (card) => ({
+  id: card.id,
+  isFavorite: card.is_favorite,
+  isPremium: card.is_premium,
+  previewImage: card.preview_image,
+  adults: card.max_adults,
+  title: card.title,
+  type: card.type,
+  price: card.price,
+  bedrooms: card.bedrooms,
+  goods: card.goods,
+  description: card.description,
+  city: card.city,
+  rating: card.rating,
+  location: card.location,
+  images: card.images,
+  additions: card.goods
+});
+
+export const adaptOffersToClient = (cards) => cards.map((card) => adaptOfferToClient(card));
+
+export const adaptReviewsToClient = (reviews) => {
+  return reviews.map((review) => ({
+    id: review.id,
+    rating: review.rating,
+    comment: review.comment,
+    date: review.date,
+    user: {
+      name: review.user.name,
+      avatar: review.user.avatar_url
+    }
+  }));
 };

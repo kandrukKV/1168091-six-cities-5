@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
+import Preloader from "../preloader/preloader";
 
 const PlaceCardList = (props) => {
 
@@ -12,6 +13,10 @@ const PlaceCardList = (props) => {
     changeActiveCard
   } = props;
 
+  if (!cards) {
+    return <Preloader/>;
+  }
+  console.log(cards);
   return (
     <div className={`${listClassName} places__list`}>
       {
