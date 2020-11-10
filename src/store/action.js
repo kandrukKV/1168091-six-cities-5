@@ -6,8 +6,13 @@ export const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   SET_AUTH_INFO: `SET_AUTH_INFO`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
-  LOAD_FAVORITE_OFFERS: `SET_FAVORITE_OFFERS`,
-  LOAD_OFFER_DETAILS: `LOAD_OFFER_DETAILS`
+  LOAD_FAVORITE_OFFERS: `LOAD_FAVORITE_OFFERS`,
+  LOAD_OFFER_DETAILS: `LOAD_OFFER_DETAILS`,
+  SET_REVIEWS: `SET_REVIEWS`,
+  UPDATE_OFFER: `UPDATE_OFFER`,
+  UPDATE_FAVORITE_OFFERS: `UPDATE_FAVORITE_OFFERS`,
+  UPDATE_NEARPLACES: `UPDATE_NEARPLACES`,
+  UPDATE_OFFER_DETAILS_CARD: `UPDATE_OFFER_DETAILS_CARD`
 };
 
 export const changeCityAction = (city) => ({
@@ -54,3 +59,24 @@ export const loadOfferDetailsAction = (offerDeatails) => ({
   type: ActionType.LOAD_OFFER_DETAILS,
   payload: offerDeatails
 });
+
+export const setReviewsAction = (reviews) => ({
+  type: ActionType.SET_REVIEWS,
+  payload: reviews
+});
+
+export const updateOfferAction = (offer) => ({
+  type: ActionType.UPDATE_OFFER,
+  payload: offer
+});
+
+export const updateFavoriteOffersAction = (offers) => ({
+  type: ActionType.UPDATE_FAVORITE_OFFERS,
+  payload: offers
+});
+
+export const updateNearPlacesAction = (nearPlaces) => ({
+  type: ActionType.UPDATE_NEARPLACES,
+  payload: nearPlaces
+});
+

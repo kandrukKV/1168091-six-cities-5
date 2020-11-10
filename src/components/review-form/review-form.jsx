@@ -11,12 +11,13 @@ const ReviewForm = (props) => {
     isSubmit,
     onChangeRating,
     onChangeTextArea,
+    onSubmit
   } = props;
 
   const isDisabled = Boolean(!value || !rating || isSubmit);
 
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={onSubmit}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating" onChange={onChangeRating}>
         {
@@ -36,6 +37,7 @@ const ReviewForm = (props) => {
       </div>
       <textarea
         className="reviews__textarea form__textarea"
+        value={value}
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
@@ -50,7 +52,6 @@ const ReviewForm = (props) => {
       </div>
     </form>
   );
-
 };
 
 ReviewForm.propTypes = {
@@ -59,6 +60,7 @@ ReviewForm.propTypes = {
   isSubmit: PropTypes.bool.isRequired,
   onChangeRating: PropTypes.func.isRequired,
   onChangeTextArea: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ReviewForm;

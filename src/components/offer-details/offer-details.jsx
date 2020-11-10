@@ -42,6 +42,7 @@ const OfferDetails = (props) => {
               className={`property`}
               width={31}
               height={33}
+              cardId={card.id}
             />
           </div>
 
@@ -56,11 +57,14 @@ const OfferDetails = (props) => {
 
           <Additions additions={card.additions}/>
 
-          <MeetTheHost/>
+          <MeetTheHost
+            host={card.host}
+            description={card.description}
+          />
 
           <section className="property__reviews reviews">
             <ReviewsList reviews={reviews}/>
-            <ReviewFormWrapped/>
+            <ReviewFormWrapped cardId={card.id}/>
           </section>
         </div>
       </div>

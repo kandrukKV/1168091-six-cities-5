@@ -1,4 +1,15 @@
-import {loadOffersAction, requiredAuthorizationAction, setAuthInfoAction, redirectToRouteAction, loadFavoriteOffersAction, loadOfferDetailsAction} from "./action";
+import {
+  loadOffersAction,
+  requiredAuthorizationAction,
+  setAuthInfoAction,
+  redirectToRouteAction,
+  loadFavoriteOffersAction,
+  loadOfferDetailsAction,
+  setReviewsAction,
+  updateOfferAction,
+  updateFavoriteOffersAction,
+  updateNearPlacesAction
+} from "./action";
 import {AuthorizationStatus, APIRoute, AppRoute} from "../const";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
@@ -14,8 +25,8 @@ export const fetchFavoriteOffersList = () => (dispatch, _getState, api) => (
 export const loadOfferDetails = (id) => (dispatch, _getState, api) => (
   Promise.all([
     api.get(`${APIRoute.HOTELS}/${id}`),
-    api.get(`comments/${id}`),
-    api.get(`/hotels/${id}/nearby`)
+    api.get(`${APIRoute.COMMENTS}/${id}`),
+    api.get(`${APIRoute.HOTELS}/${id}${APIRoute.NEARBY}`)
   ]).then((details) => {
     dispatch(loadOfferDetailsAction({
       card: details[0].data,
@@ -27,11 +38,28 @@ export const loadOfferDetails = (id) => (dispatch, _getState, api) => (
 
 export const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIRoute.LOGIN)
-    .then(() => dispatch(requiredAuthorizationAction(AuthorizationStatus.AUTH)))
+    .then(({data}) => {
+      dispatch(setAuthInfoAction(data));
+      dispatch(requiredAuthorizationAction(AuthorizationStatus.AUTH));
+    })
     .catch((err) => {
       throw err;
     })
 );
+
+export const postComment = ({comment, rating, hotelId}) => (dispatch, _getState, api) => (
+  api.post(`${APIRoute.COMMENTS}/${hotelId}`, {comment, rating})
+    .then(({data}) => dispatch(setReviewsAction(data)))
+);
+
+export const setOfferStatus = (hotelId, status) => (dispatch, _getState, api) => {
+  api.post(`${APIRoute.FAVORITE}/${hotelId}/${status}`)
+    .then(({data}) => {
+      dispatch(updateOfferAction(data));
+      dispatch(updateFavoriteOffersAction(data));
+      dispatch(updateNearPlacesAction(data));
+    });
+};
 
 export const login = ({login: email, password}) => (dispatch, _getState, api) => (
   api.post(APIRoute.LOGIN, {email, password})

@@ -32,4 +32,8 @@ export const APIRoute = {
   HOTELS: `/hotels`,
   LOGIN: `/login`,
   FAVORITE: `/favorite`,
+  COMMENTS: `/comments`,
+  NEARBY: `/nearby`
 };
+
+export const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];

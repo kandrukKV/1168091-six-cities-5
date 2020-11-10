@@ -6,7 +6,7 @@ import Header from "../header/header";
 import CitiesList from "../cities-list/cities-list";
 import OffersContent from "../offers-content/offers-content";
 import OffersContentEmpty from "../offers-content-empty/offers-content-empty";
-import {getCurrentCity, getCities, getCurrentSortType, getFilteredOffers} from "../../store/selectors";
+import {getCurrentCitySelector, getCitiesSelector, getCurrentSortTypeSelector, getFilteredOffersSelector} from "../../store/selectors";
 
 const Main = (props) => {
   const {
@@ -46,10 +46,10 @@ const Main = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  cards: getFilteredOffers(state),
-  currentCity: getCurrentCity(state),
-  cities: getCities(state),
-  currentSortType: getCurrentSortType(state)
+  cards: getFilteredOffersSelector(state),
+  currentCity: getCurrentCitySelector(state),
+  cities: getCitiesSelector(state),
+  currentSortType: getCurrentSortTypeSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

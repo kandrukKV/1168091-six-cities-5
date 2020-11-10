@@ -7,7 +7,7 @@ import OfferDetails from "../offer-details/offer-details";
 import placeCardProp from "../place-card/place-card.prop";
 import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
-import {getOfferDetails} from "../../store/selectors";
+import {getCurrentOfferSelector, getReviewsSelector, getNearPlacesSelector} from "../../store/selectors";
 
 import Map from "../map/map";
 import Preloader from "../preloader/preloader";
@@ -22,14 +22,22 @@ class Offer extends PureComponent {
 
   componentDidMount() {
     const {id} = this.props.match.params;
-    this.props.getOfferDetails(id);
+    this.props.getCurrentOffer(id);
   }
 
   render() {
-    const {card, reviews, nearPlaces} = this.props.offerDetails;
+    const {card, reviews, nearPlaces} = this.props;
 
     if (!card || !reviews || !nearPlaces) {
-      return <Preloader/>;
+      return (
+        <div className="page">
+          <main className="page__main page__main--property">
+            <section className="property">
+              <Preloader/>
+            </section>
+          </main>
+        </div>
+      );
     }
 
     return (
@@ -58,31 +66,31 @@ class Offer extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  offerDetails: getOfferDetails(state)
+  card: getCurrentOfferSelector(state),
+  reviews: getReviewsSelector(state),
+  nearPlaces: getNearPlacesSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getOfferDetails(id) {
+  getCurrentOffer(id) {
     dispatch(loadOfferDetails(id));
   }
 });
 
 Offer.propTypes = {
-  offerDetails: PropTypes.shape({
-    card: PropTypes.oneOfType([
-      placeCardProp,
-      PropTypes.oneOf([null]).isRequired
-    ]),
-    reviews: PropTypes.oneOfType([
-      PropTypes.array.isRequired,
-      PropTypes.oneOf([null]).isRequired
-    ]),
-    nearPlaces: PropTypes.oneOfType([
-      PropTypes.array.isRequired,
-      PropTypes.oneOf([null]).isRequired
-    ])
-  }),
-  getOfferDetails: PropTypes.func.isRequired,
+  card: PropTypes.oneOfType([
+    placeCardProp,
+    PropTypes.oneOf([null]).isRequired
+  ]),
+  reviews: PropTypes.oneOfType([
+    PropTypes.array.isRequired,
+    PropTypes.oneOf([null]).isRequired
+  ]),
+  nearPlaces: PropTypes.oneOfType([
+    PropTypes.array.isRequired,
+    PropTypes.oneOf([null]).isRequired
+  ]),
+  getCurrentOffer: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired

@@ -28,13 +28,16 @@ const store = createStore(
     )
 );
 
+Promise.all([
+  store.dispatch(fetchOffersList()),
+  store.dispatch(checkAuth())
+])
+.then(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App/>
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+});
 
-store.dispatch(fetchOffersList());
-store.dispatch(checkAuth());
-
-ReactDOM.render(
-    <Provider store={store}>
-      <App/>
-    </Provider>,
-    document.querySelector(`#root`)
-);

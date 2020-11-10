@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getActiveCard} from "../../store/selectors";
+import {getActiveCardSelector} from "../../store/selectors";
 import leaflet from "leaflet";
 import 'leaflet/dist/leaflet.css';
 
@@ -103,7 +103,7 @@ class Map extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  activeCard: getActiveCard(state)
+  activeCard: getActiveCardSelector(state)
 });
 
 Map.propTypes = {

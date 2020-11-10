@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Rating from "../rating/rating";
+import {convertDate} from "../../utils";
 
 const Review = ({review}) => {
   const {user} = review;
@@ -19,7 +20,7 @@ const Review = ({review}) => {
         <p className="reviews__text">
           {review.comment}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">{review.date}</time>
+        <time className="reviews__time" dateTime={review.date}>{convertDate(review.date)}</time>
       </div>
     </li>
   );
