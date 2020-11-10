@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getFavoriteOffers() {
-    dispatch(fetchFavoriteOffersList())
+    dispatch(fetchFavoriteOffersList());
   }
 });
 
