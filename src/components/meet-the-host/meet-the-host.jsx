@@ -1,28 +1,35 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 
-const MeetTheHost = () => {
+const MeetTheHost = ({host, description}) => {
+
   return (
     <div className="property__host">
       <h2 className="property__host-title">Meet the host</h2>
       <div className="property__host-user user">
         <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-          <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar"/>
+          <img className="property__avatar user__avatar" src={host.avatar} width="74" height="74" alt="Host avatar"/>
         </div>
         <span className="property__user-name">
-          Angelina
+          {host.name}
         </span>
       </div>
       <div className="property__description">
         <p className="property__text">
-          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-        </p>
-        <p className="property__text">
-          An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+          {description}
         </p>
       </div>
     </div>
   );
+};
+
+MeetTheHost.propTypes = {
+  host: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired
+  }),
+  description: PropTypes.string.isRequired
 };
 
 export default MeetTheHost;

@@ -16,7 +16,7 @@ export const SortType = {
 
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
+  NO_AUTH: `NO_AUTH`
 };
 
 export const CITIES = [`Amsterdam`, `Paris`, `Cologne`, `Brussels`, `Hamburg`, `Dusseldorf`];
@@ -31,4 +31,34 @@ export const AppRoute = {
 export const APIRoute = {
   HOTELS: `/hotels`,
   LOGIN: `/login`,
+  FAVORITE: `/favorite`,
+  COMMENTS: `/comments`,
+  NEARBY: `/nearby`
+};
+
+export const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
+
+export const FavoriteStatus = {
+  YES: `1`,
+  NO: `0`
+};
+
+export const BookmarkButtonBigSize = {
+  WIDTH: 31,
+  HEIGHT: 33
+};
+
+export const FavoritesItemImageSize = {
+  WIDTH: 150,
+  HEIGHT: 110
+};
+
+export const defaultMapIcon = {
+  iconUrl: `img/pin.svg`,
+  iconSize: [30, 30]
+};
+
+export const activeMapIcon = {
+  iconUrl: `img/pin-active.svg`,
+  iconSize: [30, 30]
 };
