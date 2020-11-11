@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {getAuthorizationStatusSelector} from "../../../store/selectors";
 import {postComment} from "../../../store/api-actions";
-import {AuthorizationStatus} from "../../../const";
+import {AuthorizationStatus, ReviewFormProperty} from "../../../const";
 import {connect} from "react-redux";
 
 const withReviewForm = (Component) => {
@@ -26,7 +26,7 @@ const withReviewForm = (Component) => {
 
     handleChangeTextarea(evt) {
       const textareaValue = evt.target.value;
-      if (textareaValue.length <= 50) {
+      if (textareaValue.length >= ReviewFormProperty.MINLENGTH && textareaValue.length <= ReviewFormProperty.MAXLENGTH) {
         this.setState(() => ({value: textareaValue}));
       }
     }

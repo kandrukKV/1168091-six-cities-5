@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import {requiredAuthorizationAction, setAuthInfoAction} from "./store/action";
-import {fetchOffersList, checkAuth} from "./store/api-actions";
+import {fetchOffersList} from "./store/api-actions";
 import {AuthorizationStatus} from "./const";
 import App from "./components/app/app";
 import {redirect} from "./store/middlewares/redirect";
@@ -28,16 +28,17 @@ const store = createStore(
     )
 );
 
-Promise.all([
-  store.dispatch(fetchOffersList()),
-  store.dispatch(checkAuth())
-])
-.then(() => {
-  ReactDOM.render(
-      <Provider store={store}>
-        <App/>
-      </Provider>,
-      document.querySelector(`#root`)
-  );
-});
+store.dispatch(fetchOffersList())
+  .then(() => {
+    ReactDOM.render(
+        <Provider store={store}>
+          <App/>
+        </Provider>,
+        document.querySelector(`#root`)
+    );
+  });
+
+
+// store.dispatch(checkAuth())
+
 

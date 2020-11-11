@@ -6,7 +6,7 @@ const initialState = {
   currentCity: `Amsterdam`,
   cities: CITIES,
   currentSortType: SortType.POPULAR,
-  activeCard: null
+  activeCard: null,
 };
 
 const appState = (state = initialState, action) => {

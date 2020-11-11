@@ -27,7 +27,7 @@ class Offer extends PureComponent {
   }
 
   componentWillUnmount() {
-    this.props.setNullActiveCard();
+    this.props.removeActiveCard();
   }
 
   render() {
@@ -79,7 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCurrentOffer(id) {
     dispatch(loadOfferDetails(id));
   },
-  setNullActiveCard() {
+  removeActiveCard() {
     dispatch(setActiveCardAction(null));
   }
 });
@@ -98,7 +98,7 @@ Offer.propTypes = {
     PropTypes.oneOf([null]).isRequired
   ]),
   getCurrentOffer: PropTypes.func.isRequired,
-  setNullActiveCard: PropTypes.func.isRequired,
+  removeActiveCard: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired

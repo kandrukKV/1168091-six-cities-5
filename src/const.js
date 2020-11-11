@@ -62,3 +62,12 @@ export const activeMapIcon = {
   iconUrl: `img/pin-active.svg`,
   iconSize: [30, 30]
 };
+
+export const ReviewFormProperty = {
+  MINLENGTH: 50,
+  MAXLENGTH: 500
+};
+
+export const ReviewFormError = {
+  SENT_ERROR: `SENT_ERROR`
+};
