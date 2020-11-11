@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import {redirectToRouteAction} from "../../store/action";
 import {connect} from "react-redux";
-import {AuthorizationStatus, APIRoute} from "../../const";
+import {AuthorizationStatus, APIRoute, FavoriteStatus} from "../../const";
 import {getAuthorizationStatusSelector} from "../../store/selectors";
 import {setOfferStatus} from "../../store/api-actions";
 import PropTypes from "prop-types";
@@ -20,7 +20,7 @@ class BookmarkButton extends PureComponent {
         return redirectToLoginPage;
       case AuthorizationStatus.AUTH:
         return () => {
-          return changeOfferStatus(cardId, isFavorite ? `0` : `1`);
+          return changeOfferStatus(cardId, isFavorite ? FavoriteStatus.NO : FavoriteStatus.YES);
         };
     }
     return () => {};
@@ -29,8 +29,8 @@ class BookmarkButton extends PureComponent {
   render() {
     const {
       className = `place-card`,
-      width = 18,
-      height = 19,
+      buttonWidth = 18,
+      buttonHeight = 19,
       isFavorite
     } = this.props;
 
@@ -42,7 +42,7 @@ class BookmarkButton extends PureComponent {
         className={`${className}__bookmark-button ${buttonClassActive} button`}
         type="button"
       >
-        <svg className={`place-card__bookmark-icon`} width={width} height={height}>
+        <svg className={`place-card__bookmark-icon`} width={buttonWidth} height={buttonHeight}>
           <use xlinkHref="#icon-bookmark"></use>
         </svg>
         <span className="visually-hidden">To bookmarks</span>
@@ -67,8 +67,8 @@ const mapDispatchToProps = (dispatch) => ({
 BookmarkButton.propTypes = {
   isFavorite: PropTypes.bool.isRequired,
   className: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  buttonWidth: PropTypes.number,
+  buttonHeight: PropTypes.number,
   authorizationStatus: PropTypes.string.isRequired,
   cardId: PropTypes.number.isRequired,
   redirectToLoginPage: PropTypes.func.isRequired,

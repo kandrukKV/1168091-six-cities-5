@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
+import {FavoritesItemImageSize} from "../../const";
 
 const FavoritesItem = (props) => {
 
@@ -22,8 +23,8 @@ const FavoritesItem = (props) => {
               key={`fav-${card.id}`}
               itemClassName={`favorites__card`}
               wrapClassName={`favorites`}
-              imageWidth={150}
-              imageHeight={110}
+              imageWidth={FavoritesItemImageSize.WIDTH}
+              imageHeight={FavoritesItemImageSize.HEIGHT}
               card={card}
               onMouseOverHandler={() => {}}
             />

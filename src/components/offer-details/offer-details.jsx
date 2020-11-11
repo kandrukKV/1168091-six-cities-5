@@ -10,6 +10,7 @@ import PropertyFeatures from "../property-features/property-features";
 import BookmarkButton from "../bookmark-button/bookmark-button";
 import withReviewForm from "../hocs/with-review-form/with-review-form";
 import ReviewForm from "../review-form/review-form";
+import {BookmarkButtonBigSize} from "../../const";
 
 const ReviewFormWrapped = withReviewForm(ReviewForm);
 
@@ -40,8 +41,8 @@ const OfferDetails = (props) => {
             <BookmarkButton
               isFavorite={card.isFavorite}
               className={`property`}
-              width={31}
-              height={33}
+              buttonWidth={BookmarkButtonBigSize.WIDTH}
+              buttonHeight={BookmarkButtonBigSize.HEIGHT}
               cardId={card.id}
             />
           </div>
