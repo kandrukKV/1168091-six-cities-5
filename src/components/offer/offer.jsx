@@ -8,6 +8,7 @@ import placeCardProp from "../place-card/place-card.prop";
 import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import {getCurrentOfferSelector, getReviewsSelector, getNearPlacesSelector} from "../../store/selectors";
+import {setActiveCardAction} from "../../store/action";
 
 import Map from "../map/map";
 import Preloader from "../preloader/preloader";
@@ -25,9 +26,12 @@ class Offer extends PureComponent {
     this.props.getCurrentOffer(id);
   }
 
+  componentWillUnmount() {
+    this.props.setNullActiveCard();
+  }
+
   render() {
     const {card, reviews, nearPlaces} = this.props;
-
     if (!card || !reviews || !nearPlaces) {
       return (
         <div className="page">
@@ -74,6 +78,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getCurrentOffer(id) {
     dispatch(loadOfferDetails(id));
+  },
+  setNullActiveCard() {
+    dispatch(setActiveCardAction(null));
   }
 });
 
@@ -91,6 +98,7 @@ Offer.propTypes = {
     PropTypes.oneOf([null]).isRequired
   ]),
   getCurrentOffer: PropTypes.func.isRequired,
+  setNullActiveCard: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired

@@ -45,6 +45,12 @@ const apiData = (state = initialState, action) => {
           nearPlaces: updateOffers(state.offerDetails.nearPlaces, action.payload)
         })
       });
+    case ActionType.UPDATE_CARD_FROM_OFFER_DETAILS:
+      return extend(state, {
+        offerDetails: extend(state.offerDetails, {
+          card: action.payload
+        })
+      });
     default:
       return state;
   }

@@ -8,7 +8,8 @@ import {
   setReviewsAction,
   updateOfferAction,
   updateFavoriteOffersAction,
-  updateNearPlacesAction
+  updateNearPlacesAction,
+  updateCardFromOfferDetailsAction
 } from "./action";
 import {AuthorizationStatus, APIRoute, AppRoute} from "../const";
 
@@ -58,6 +59,7 @@ export const setOfferStatus = (hotelId, status) => (dispatch, _getState, api) =>
       dispatch(updateOfferAction(data));
       dispatch(updateFavoriteOffersAction(data));
       dispatch(updateNearPlacesAction(data));
+      dispatch(updateCardFromOfferDetailsAction(data));
     });
 };
 
