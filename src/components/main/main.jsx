@@ -2,7 +2,6 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {changeCityAction, changeSortTypeAction} from "../../store/action";
-import {checkAuth} from "../../store/api-actions";
 import Header from "../header/header";
 import CitiesList from "../cities-list/cities-list";
 import OffersContent from "../offers-content/offers-content";
@@ -12,10 +11,6 @@ import {getCurrentCitySelector, getCitiesSelector, getCurrentSortTypeSelector, g
 class Main extends PureComponent {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.clarifyAuth();
   }
 
   render() {
@@ -69,9 +64,6 @@ const mapDispatchToProps = (dispatch) => ({
   changeSortType(filterName) {
     dispatch(changeSortTypeAction(filterName));
   },
-  clarifyAuth() {
-    dispatch(checkAuth());
-  }
 });
 
 Main.propTypes = {
@@ -81,7 +73,6 @@ Main.propTypes = {
   currentSortType: PropTypes.string.isRequired,
   changeCity: PropTypes.func.isRequired,
   changeSortType: PropTypes.func.isRequired,
-  clarifyAuth: PropTypes.func.isRequired
 };
 
 export {Main};

@@ -26,7 +26,7 @@ const withReviewForm = (Component) => {
 
     handleChangeTextarea(evt) {
       const textareaValue = evt.target.value;
-      if (textareaValue.length >= ReviewFormProperty.MINLENGTH && textareaValue.length <= ReviewFormProperty.MAXLENGTH) {
+      if (textareaValue.length <= ReviewFormProperty.MAXLENGTH) {
         this.setState(() => ({value: textareaValue}));
       }
     }

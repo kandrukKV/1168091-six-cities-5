@@ -38,6 +38,8 @@ export const APIRoute = {
 
 export const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
+export const STARTING_CITY = `Amsterdam`;
+
 export const FavoriteStatus = {
   YES: `1`,
   NO: `0`
@@ -69,5 +71,6 @@ export const ReviewFormProperty = {
 };
 
 export const ReviewFormError = {
-  SENT_ERROR: `SENT_ERROR`
+  SEND_ERROR: `SEND_ERROR`,
+  NO_ERRORS: `NO_ERRORS`
 };

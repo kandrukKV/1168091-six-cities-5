@@ -12,7 +12,6 @@ import {AppRoute} from "../../const";
 
 const App = () => {
 
-  const favoriteCards = [];
   return (
     <Router history={browserHistory}>
       <Switch>
@@ -28,7 +27,7 @@ const App = () => {
         <PrivateRoute
           exact
           path={AppRoute.FAVORITES}
-          render={() => <Favorites favoriteCards={favoriteCards}/>}
+          render={() => <Favorites/>}
         />
 
         <Route

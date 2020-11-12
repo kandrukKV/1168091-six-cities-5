@@ -9,9 +9,10 @@ import {
   updateOfferAction,
   updateFavoriteOffersAction,
   updateNearPlacesAction,
-  updateCardFromOfferDetailsAction
+  updateCardFromOfferDetailsAction,
+  setReviewFormErrorAction
 } from "./action";
-import {AuthorizationStatus, APIRoute, AppRoute} from "../const";
+import {AuthorizationStatus, APIRoute, AppRoute, ReviewFormError} from "../const";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.HOTELS)
@@ -43,14 +44,13 @@ export const checkAuth = () => (dispatch, _getState, api) => (
       dispatch(setAuthInfoAction(data));
       dispatch(requiredAuthorizationAction(AuthorizationStatus.AUTH));
     })
-    .catch((err) => {
-      throw err;
-    })
+    .catch(() => {})
 );
 
 export const postComment = ({comment, rating, hotelId}) => (dispatch, _getState, api) => (
   api.post(`${APIRoute.COMMENTS}/${hotelId}`, {comment, rating})
     .then(({data}) => dispatch(setReviewsAction(data)))
+    .catch(() => dispatch(setReviewFormErrorAction(ReviewFormError.SEND_ERROR)))
 );
 
 export const setOfferStatus = (hotelId, status) => (dispatch, _getState, api) => {
