@@ -1,13 +1,13 @@
 import {extend} from "../../../utils";
 import {ActionType} from "../../action";
-import {SortType, CITIES, ReviewFormError, STARTING_CITY} from "../../../const";
+import {SortType, CITIES, ReviewFormState, STARTING_CITY} from "../../../const";
 
 const initialState = {
   currentCity: STARTING_CITY,
   cities: CITIES,
   currentSortType: SortType.POPULAR,
   activeCard: null,
-  reviewFormError: ReviewFormError.NO_ERRORS
+  reviewFormState: ReviewFormState.EDITING
 };
 
 const appState = (state = initialState, action) => {
@@ -24,9 +24,9 @@ const appState = (state = initialState, action) => {
       return extend(state, {
         activeCard: action.payload
       });
-    case ActionType.SET_REVIEW_FORM_ERROR:
+    case ActionType.SET_STATE_REVIEW_FORM:
       return extend(state, {
-        reviewFormError: action.payload
+        reviewFormState: action.payload
       });
     default:
       return state;

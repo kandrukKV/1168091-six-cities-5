@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Map from "../map/map";
-import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
+import withPlaceCardList from "../../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import PlacesInfo from "../places-info/places-info";
 import Sort from "../sort/sort";
-import withSort from "../hocs/with-sort/with-sort";
+import withSort from "../../hocs/with-sort/with-sort";
 
 const PlaceCardListWrapped = withPlaceCardList(PlaceCardList);
 const SortWrapped = withSort(Sort);

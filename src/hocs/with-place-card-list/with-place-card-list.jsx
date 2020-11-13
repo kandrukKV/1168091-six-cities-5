@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {setActiveCardAction} from "../../../store/action";
+import {setActiveCardAction} from "../../store/action";
 
 const withPlaceCardList = (Component) => {
   class WithPlaceCardList extends PureComponent {

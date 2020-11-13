@@ -1,4 +1,10 @@
-export const STAR_VALUES = [5, 4, 3, 2, 1];
+export const STAR_VALUES = [
+  {starValue: 5, title: `perfect`},
+  {starValue: 4, title: `good`},
+  {starValue: 3, title: `not bad`},
+  {starValue: 2, title: `badly`},
+  {starValue: 1, title: `terribly`},
+];
 
 export const FILTER_ITEMS = [
   `Popular`,
@@ -70,7 +76,9 @@ export const ReviewFormProperty = {
   MAXLENGTH: 500
 };
 
-export const ReviewFormError = {
-  SEND_ERROR: `SEND_ERROR`,
-  NO_ERRORS: `NO_ERRORS`
+export const ReviewFormState = {
+  SENDING_ERROR: `SENDING_ERROR`,
+  EDITING: `EDITING`,
+  POSTING_COMMENT: `POSTING_COMMENT`,
+  DEFAULT: `DEFAULT`
 };

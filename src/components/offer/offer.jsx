@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import OfferDetails from "../offer-details/offer-details";
 import placeCardProp from "../place-card/place-card.prop";
-import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
+import withPlaceCardList from "../../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import {getCurrentOfferSelector, getReviewsSelector, getNearPlacesSelector} from "../../store/selectors";
 import {setActiveCardAction} from "../../store/action";

@@ -65,3 +65,5 @@ export const getFilteredOffersSelector = createSelector(
     getCurrentSortTypeSelector,
     (offers, currentCity, currentSortType) => sortOfersBy[currentSortType](getCurrentCityOffers(offers, currentCity).slice())
 );
+
+export const getReviewFormStateSelector = (state) => state[NameSpace.APP_STATE].reviewFormState;

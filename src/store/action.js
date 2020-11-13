@@ -14,7 +14,7 @@ export const ActionType = {
   UPDATE_NEARPLACES: `UPDATE_NEARPLACES`,
   UPDATE_OFFER_DETAILS_CARD: `UPDATE_OFFER_DETAILS_CARD`,
   UPDATE_CARD_FROM_OFFER_DETAILS: `UPDATE_CARD_FROM_OFFER_DETAILS`,
-  SET_REVIEW_FORM_ERROR: `SET_REVIEW_FORM_ERROR`
+  SET_STATE_REVIEW_FORM: `SET_STATE_REVIEW_FORM`
 };
 
 export const changeCityAction = (city) => ({
@@ -87,8 +87,8 @@ export const updateCardFromOfferDetailsAction = (offer) => ({
   payload: offer
 });
 
-export const setReviewFormErrorAction = (error) => ({
-  type: ActionType.SET_REVIEW_FORM_ERROR,
-  payload: error
+export const setReviewFormStateAction = (evtent) => ({
+  type: ActionType.SET_STATE_REVIEW_FORM,
+  payload: evtent
 });
 

@@ -8,7 +8,7 @@ import ReviewsList from "../reviews-list/reviews-list";
 import MeetTheHost from "../meet-the-host/meet-the-host";
 import PropertyFeatures from "../property-features/property-features";
 import BookmarkButton from "../bookmark-button/bookmark-button";
-import withReviewForm from "../hocs/with-review-form/with-review-form";
+import withReviewForm from "../../hocs/with-review-form/with-review-form";
 import ReviewForm from "../review-form/review-form";
 import {BookmarkButtonBigSize} from "../../const";
 
