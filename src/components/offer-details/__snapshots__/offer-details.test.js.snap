@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfferDetails is rendered correctly with offers 1`] = `
+<React.Fragment>
+  <div
+    className="property__gallery-container container"
+  >
+    <div
+      className="property__gallery"
+    >
+      <div
+        className="property__image-wrapper"
+      >
+        <img
+          className="property__image"
+          src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg"
+        />
+      </div>
+      <div
+        className="property__image-wrapper"
+      >
+        <img
+          className="property__image"
+          src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg"
+        />
+      </div>
+      <div
+        className="property__image-wrapper"
+      >
+        <img
+          className="property__image"
+          src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg"
+        />
+      </div>
+      <div
+        className="property__image-wrapper"
+      >
+        <img
+          className="property__image"
+          src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="property__container container"
+  >
+    <div
+      className="property__wrapper"
+    >
+      <div
+        className="property__name-wrapper"
+      >
+        <h1
+          className="property__name"
+        >
+          Perfectly located Castro
+        </h1>
+        <Memo(Connect(BookmarkButton))
+          buttonHeight={33}
+          buttonWidth={31}
+          cardId={1}
+          className="property"
+          isFavorite={false}
+        />
+      </div>
+      <Rating
+        className="property"
+        rating={1}
+      />
+      <PropertyFeatures
+        adults={7}
+        bedrooms={3}
+        type="house"
+      />
+      <div
+        className="property__price"
+      >
+        <b
+          className="property__price-value"
+        >
+          €
+          440
+        </b>
+        <span
+          className="property__price-text"
+        >
+           night
+        </span>
+      </div>
+      <Additions
+        additions={
+          Array [
+            "Dishwasher",
+            "Dishwasher",
+            "Dishwasher",
+          ]
+        }
+      />
+      <MeetTheHost
+        description="Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed."
+        host={
+          Object {
+            "avatar": "img/avatar-angelina.jpg",
+            "id": 25,
+            "name": "Angelina",
+          }
+        }
+      />
+      <section
+        className="property__reviews reviews"
+      >
+        <ReviewsList
+          reviews={
+            Array [
+              Object {
+                "comment": "We loved it so much, the house, the veiw, the location just great.. Highly reccomend :)",
+                "date": "2020-11-02T13:38:44.752Z",
+                "id": 1,
+                "rating": 3,
+                "user": Object {
+                  "avatar": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/9.jpg",
+                  "id": 18,
+                  "name": "Sophie",
+                },
+              },
+              Object {
+                "comment": "What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!",
+                "date": "2020-11-02T13:38:44.752Z",
+                "id": 2,
+                "rating": 2,
+                "user": Object {
+                  "avatar": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/7.jpg",
+                  "id": 16,
+                  "name": "Mollie",
+                },
+              },
+            ]
+          }
+        />
+        <Memo(Connect(WithReviewForm))
+          cardId={1}
+        />
+      </section>
+    </div>
+  </div>
+</React.Fragment>
+`;

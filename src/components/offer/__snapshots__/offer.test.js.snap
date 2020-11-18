@@ -1,0 +1,538 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Offer is rendered correctly with offers 1`] = `
+<div
+  className="page"
+>
+  <Memo(Connect(Header)) />
+  <main
+    className="page__main page__main--property"
+  >
+    <section
+      className="property"
+    >
+      <OfferDetails
+        card={
+          Object {
+            "additions": Array [
+              "Dishwasher",
+              "Dishwasher",
+              "Dishwasher",
+            ],
+            "adults": 7,
+            "bedrooms": 3,
+            "city": Object {
+              "location": Object {
+                "latitude": 52.37454,
+                "longitude": 4.897976,
+                "zoom": 13,
+              },
+              "name": "Amsterdam",
+            },
+            "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+            "host": Object {
+              "avatar": "img/avatar-angelina.jpg",
+              "id": 25,
+              "name": "Angelina",
+            },
+            "id": 1,
+            "images": Array [
+              "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+            ],
+            "isFavorite": false,
+            "isPremium": false,
+            "location": Object {
+              "latitude": 52.385540000000006,
+              "longitude": 4.902976,
+              "zoom": 16,
+            },
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+            "price": 440,
+            "rating": 1,
+            "title": "Perfectly located Castro",
+            "type": "house",
+          }
+        }
+        reviews={
+          Array [
+            Object {
+              "comment": "We loved it so much, the house, the veiw, the location just great.. Highly reccomend :)",
+              "date": "2020-11-02T13:38:44.752Z",
+              "id": 1,
+              "rating": 3,
+              "user": Object {
+                "avatar": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/9.jpg",
+                "id": 18,
+                "name": "Sophie",
+              },
+            },
+            Object {
+              "comment": "What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!",
+              "date": "2020-11-02T13:38:44.752Z",
+              "id": 2,
+              "rating": 2,
+              "user": Object {
+                "avatar": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/7.jpg",
+                "id": 16,
+                "name": "Mollie",
+              },
+            },
+          ]
+        }
+      />
+      <Memo(Connect(Map))
+        cards={
+          Array [
+            Object {
+              "additions": Array [
+                "Dishwasher",
+                "Dishwasher",
+                "Dishwasher",
+              ],
+              "adults": 7,
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 52.37454,
+                  "longitude": 4.897976,
+                  "zoom": 13,
+                },
+                "name": "Amsterdam",
+              },
+              "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+              "host": Object {
+                "avatar": "img/avatar-angelina.jpg",
+                "id": 25,
+                "name": "Angelina",
+              },
+              "id": 1,
+              "images": Array [
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              ],
+              "isFavorite": false,
+              "isPremium": false,
+              "location": Object {
+                "latitude": 52.385540000000006,
+                "longitude": 4.902976,
+                "zoom": 16,
+              },
+              "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+              "price": 440,
+              "rating": 1,
+              "title": "Perfectly located Castro",
+              "type": "house",
+            },
+            Object {
+              "additions": Array [
+                "Dishwasher",
+                "Dishwasher",
+                "Dishwasher",
+              ],
+              "adults": 7,
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 52.37454,
+                  "longitude": 4.897976,
+                  "zoom": 13,
+                },
+                "name": "Amsterdam",
+              },
+              "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+              "host": Object {
+                "avatar": "img/avatar-angelina.jpg",
+                "id": 25,
+                "name": "Angelina",
+              },
+              "id": 2,
+              "images": Array [
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              ],
+              "isFavorite": true,
+              "isPremium": true,
+              "location": Object {
+                "latitude": 52.388540000000006,
+                "longitude": 4.899976,
+                "zoom": 16,
+              },
+              "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+              "price": 440,
+              "rating": 2,
+              "title": "Perfectly located Castro",
+              "type": "house",
+            },
+            Object {
+              "additions": Array [
+                "Dishwasher",
+                "Dishwasher",
+                "Dishwasher",
+              ],
+              "adults": 7,
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 52.37454,
+                  "longitude": 4.897976,
+                  "zoom": 13,
+                },
+                "name": "Amsterdam",
+              },
+              "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+              "host": Object {
+                "avatar": "img/avatar-angelina.jpg",
+                "id": 25,
+                "name": "Angelina",
+              },
+              "id": 3,
+              "images": Array [
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              ],
+              "isFavorite": false,
+              "isPremium": true,
+              "location": Object {
+                "latitude": 52.364540000000005,
+                "longitude": 4.9019759999999994,
+                "zoom": 16,
+              },
+              "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+              "price": 440,
+              "rating": 3,
+              "title": "Perfectly located Castro",
+              "type": "house",
+            },
+            Object {
+              "additions": Array [
+                "Dishwasher",
+                "Dishwasher",
+                "Dishwasher",
+              ],
+              "adults": 7,
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 52.37454,
+                  "longitude": 4.897976,
+                  "zoom": 13,
+                },
+                "name": "Amsterdam",
+              },
+              "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+              "host": Object {
+                "avatar": "img/avatar-angelina.jpg",
+                "id": 25,
+                "name": "Angelina",
+              },
+              "id": 4,
+              "images": Array [
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              ],
+              "isFavorite": true,
+              "isPremium": false,
+              "location": Object {
+                "latitude": 52.385540000000006,
+                "longitude": 4.886976,
+                "zoom": 16,
+              },
+              "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+              "price": 440,
+              "rating": 4,
+              "title": "Perfectly located Castro",
+              "type": "house",
+            },
+            Object {
+              "additions": Array [
+                "Dishwasher",
+                "Dishwasher",
+                "Dishwasher",
+              ],
+              "adults": 7,
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 52.37454,
+                  "longitude": 4.897976,
+                  "zoom": 13,
+                },
+                "name": "Amsterdam",
+              },
+              "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+              "host": Object {
+                "avatar": "img/avatar-angelina.jpg",
+                "id": 25,
+                "name": "Angelina",
+              },
+              "id": 5,
+              "images": Array [
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+              ],
+              "isFavorite": true,
+              "isPremium": true,
+              "location": Object {
+                "latitude": 52.397540000000006,
+                "longitude": 4.9099759999999995,
+                "zoom": 16,
+              },
+              "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+              "price": 440,
+              "rating": 5,
+              "title": "Perfectly located Castro",
+              "type": "house",
+            },
+          ]
+        }
+        className="property"
+      />
+    </section>
+    <div
+      className="container"
+    >
+      <section
+        className="near-places places"
+      >
+        <h2
+          className="near-places__title"
+        >
+          Other places in the neighbourhood
+        </h2>
+        <Memo(Connect(PlaceCardList))
+          cards={
+            Array [
+              Object {
+                "additions": Array [
+                  "Dishwasher",
+                  "Dishwasher",
+                  "Dishwasher",
+                ],
+                "adults": 7,
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 52.37454,
+                    "longitude": 4.897976,
+                    "zoom": 13,
+                  },
+                  "name": "Amsterdam",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "host": Object {
+                  "avatar": "img/avatar-angelina.jpg",
+                  "id": 25,
+                  "name": "Angelina",
+                },
+                "id": 1,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 52.385540000000006,
+                  "longitude": 4.902976,
+                  "zoom": 16,
+                },
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                "price": 440,
+                "rating": 1,
+                "title": "Perfectly located Castro",
+                "type": "house",
+              },
+              Object {
+                "additions": Array [
+                  "Dishwasher",
+                  "Dishwasher",
+                  "Dishwasher",
+                ],
+                "adults": 7,
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 52.37454,
+                    "longitude": 4.897976,
+                    "zoom": 13,
+                  },
+                  "name": "Amsterdam",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "host": Object {
+                  "avatar": "img/avatar-angelina.jpg",
+                  "id": 25,
+                  "name": "Angelina",
+                },
+                "id": 2,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": true,
+                "isPremium": true,
+                "location": Object {
+                  "latitude": 52.388540000000006,
+                  "longitude": 4.899976,
+                  "zoom": 16,
+                },
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                "price": 440,
+                "rating": 2,
+                "title": "Perfectly located Castro",
+                "type": "house",
+              },
+              Object {
+                "additions": Array [
+                  "Dishwasher",
+                  "Dishwasher",
+                  "Dishwasher",
+                ],
+                "adults": 7,
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 52.37454,
+                    "longitude": 4.897976,
+                    "zoom": 13,
+                  },
+                  "name": "Amsterdam",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "host": Object {
+                  "avatar": "img/avatar-angelina.jpg",
+                  "id": 25,
+                  "name": "Angelina",
+                },
+                "id": 3,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": true,
+                "location": Object {
+                  "latitude": 52.364540000000005,
+                  "longitude": 4.9019759999999994,
+                  "zoom": 16,
+                },
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                "price": 440,
+                "rating": 3,
+                "title": "Perfectly located Castro",
+                "type": "house",
+              },
+              Object {
+                "additions": Array [
+                  "Dishwasher",
+                  "Dishwasher",
+                  "Dishwasher",
+                ],
+                "adults": 7,
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 52.37454,
+                    "longitude": 4.897976,
+                    "zoom": 13,
+                  },
+                  "name": "Amsterdam",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "host": Object {
+                  "avatar": "img/avatar-angelina.jpg",
+                  "id": 25,
+                  "name": "Angelina",
+                },
+                "id": 4,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": true,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 52.385540000000006,
+                  "longitude": 4.886976,
+                  "zoom": 16,
+                },
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                "price": 440,
+                "rating": 4,
+                "title": "Perfectly located Castro",
+                "type": "house",
+              },
+              Object {
+                "additions": Array [
+                  "Dishwasher",
+                  "Dishwasher",
+                  "Dishwasher",
+                ],
+                "adults": 7,
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 52.37454,
+                    "longitude": 4.897976,
+                    "zoom": 13,
+                  },
+                  "name": "Amsterdam",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "host": Object {
+                  "avatar": "img/avatar-angelina.jpg",
+                  "id": 25,
+                  "name": "Angelina",
+                },
+                "id": 5,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": true,
+                "isPremium": true,
+                "location": Object {
+                  "latitude": 52.397540000000006,
+                  "longitude": 4.9099759999999995,
+                  "zoom": 16,
+                },
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                "price": 440,
+                "rating": 5,
+                "title": "Perfectly located Castro",
+                "type": "house",
+              },
+            ]
+          }
+          itemClassName="near-places__card"
+          listClassName="near-places__list"
+          wrapClassName="near-places"
+        />
+      </section>
+    </div>
+  </main>
+</div>
+`;

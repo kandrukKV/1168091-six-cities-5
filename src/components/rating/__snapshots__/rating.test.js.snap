@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating render correctly Rating is 0 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "0%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating render correctly Rating is 1 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating render correctly Rating is 2 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "40%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating render correctly Rating is 3 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "60%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating render correctly Rating is 4 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "80%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating render correctly Rating is 5 1`] = `
+<div
+  className="rating-class__rating rating"
+>
+  <div
+    className="rating-class__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Additions is rendered correctly 1`] = `
+<div
+  className="property__inside"
+>
+  <h2
+    className="property__inside-title"
+  >
+    What's inside
+  </h2>
+  <ul
+    className="property__inside-list"
+  >
+    <li
+      className="property__inside-item"
+    >
+      addition1
+    </li>
+    <li
+      className="property__inside-item"
+    >
+      addition2
+    </li>
+    <li
+      className="property__inside-item"
+    >
+      addition3
+    </li>
+    <li
+      className="property__inside-item"
+    >
+      addition4
+    </li>
+    <li
+      className="property__inside-item"
+    >
+      addition5
+    </li>
+  </ul>
+</div>
+`;

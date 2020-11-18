@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
 import {FavoritesItemImageSize} from "../../const";
+import placeCardProp from "../place-card/place-card.prop";
 
 const FavoritesItem = (props) => {
 
@@ -38,7 +39,7 @@ const FavoritesItem = (props) => {
 FavoritesItem.propTypes = {
   favoritesItem: PropTypes.shape({
     cityName: PropTypes.string.isRequired,
-    offers: PropTypes.array.isRequired
+    offers: PropTypes.arrayOf(placeCardProp).isRequired
   })
 };
 

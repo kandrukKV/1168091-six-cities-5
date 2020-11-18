@@ -1,7 +1,9 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
 import Preloader from "../preloader/preloader";
+import {setActiveCardAction} from "../../store/action";
 
 const PlaceCardList = (props) => {
 
@@ -38,6 +40,12 @@ const PlaceCardList = (props) => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  changeActiveCard(activeCard) {
+    dispatch(setActiveCardAction(activeCard));
+  }
+});
+
 PlaceCardList.propTypes = {
   cards: PropTypes.array.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
@@ -48,4 +56,5 @@ PlaceCardList.propTypes = {
   imageHeight: PropTypes.number
 };
 
-export default PlaceCardList;
+export {PlaceCardList};
+export default connect(null, mapDispatchToProps)(PlaceCardList);
