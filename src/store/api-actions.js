@@ -57,15 +57,15 @@ export const postComment = ({comment, rating, hotelId}) => (dispatch, _getState,
     .catch(() => dispatch(setReviewFormStateAction(ReviewFormState.SENDING_ERROR)))
 );
 
-export const setOfferStatus = (hotelId, status) => (dispatch, _getState, api) => {
+export const setOfferStatus = (hotelId, status) => (dispatch, _getState, api) => (
   api.post(`${APIRoute.FAVORITE}/${hotelId}/${status}`)
     .then(({data}) => {
       dispatch(updateOfferAction(data));
       dispatch(updateFavoriteOffersAction(data));
       dispatch(updateNearPlacesAction(data));
       dispatch(updateCardFromOfferDetailsAction(data));
-    });
-};
+    })
+);
 
 export const login = ({login: email, password}) => (dispatch, _getState, api) => (
   api.post(APIRoute.LOGIN, {email, password})

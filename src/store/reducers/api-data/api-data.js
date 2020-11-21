@@ -1,4 +1,4 @@
-import {extend, updateOffers, deleteOffer} from "../../../utils";
+import {extend, updateOffers, updateFavoriteOffers} from "../../../utils";
 import {ActionType} from "../../action";
 
 const initialState = {
@@ -37,7 +37,7 @@ const apiData = (state = initialState, action) => {
       });
     case ActionType.UPDATE_FAVORITE_OFFERS:
       return extend(state, {
-        favoriteOffers: deleteOffer(state.favoriteOffers, action.payload)
+        favoriteOffers: updateFavoriteOffers(state.favoriteOffers, action.payload)
       });
     case ActionType.UPDATE_NEARPLACES:
       return extend(state, {

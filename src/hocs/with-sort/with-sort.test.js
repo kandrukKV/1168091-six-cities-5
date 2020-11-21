@@ -1,24 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PropTypes from "prop-types";
 import withSort from "./with-sort";
 import {noon} from "../../test-data/test-data";
 
-const MockComponent = (props) => {
-  const {children} = props;
-
+const MockComponent = () => {
   return (
-    <div>
-      {children}
-    </div>
+    <div/>
   );
-};
-
-MockComponent.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
 };
 
 const MockComponentWrapped = withSort(MockComponent);
