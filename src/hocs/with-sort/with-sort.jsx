@@ -1,4 +1,5 @@
 import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
 const withSort = (Component) => {
   class WithSort extends PureComponent {
@@ -16,8 +17,8 @@ const withSort = (Component) => {
       this.setState(() => ({isOpen: !this.state.isOpen}));
     }
 
-    handleListItemClick(cb, filterItem) {
-      cb(filterItem);
+    handleListItemClick(filterItem) {
+      this.props.changeSortType(filterItem);
       this.setState(() => ({isOpen: false}));
     }
 
@@ -33,6 +34,11 @@ const withSort = (Component) => {
       );
     }
   }
+
+  WithSort.propTypes = {
+    changeSortType: PropTypes.func.isRequired
+  };
+
   return WithSort;
 };
 

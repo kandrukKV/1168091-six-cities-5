@@ -34,7 +34,7 @@ exports[`App is rendered correctly 1`] = `
       exact={true}
       path="/login"
     >
-      <Memo(Connect(Login)) />
+      <Memo(Connect(WithLoginForm)) />
     </Route>
     <Memo(Connect(PrivateRoute))
       exact={true}

@@ -5,7 +5,6 @@ import {SortType} from "../../const";
 const Sort = (props) => {
   const {
     currentSortType,
-    changeSortType,
     isOpen,
     onListItemClick,
     onListNameClick
@@ -20,7 +19,7 @@ const Sort = (props) => {
       method="get"
     >
       <span className="places__sorting-caption">Sort by &nbsp;</span>
-      <span className="places__sorting-type" tabIndex="0" onClick={() => onListNameClick()}>
+      <span className="places__sorting-type" tabIndex="0" onClick={onListNameClick}>
         {currentSortType}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
@@ -34,7 +33,7 @@ const Sort = (props) => {
                 key={filterItem}
                 className={`places__option ${currentSortType === filterItem ? `places__option--active` : ``}`}
                 tabIndex="0"
-                onClick={() => onListItemClick(changeSortType, filterItem)}
+                onClick={() => onListItemClick(filterItem)}
               >
                 {filterItem}
               </li>
@@ -48,7 +47,6 @@ const Sort = (props) => {
 
 Sort.propTypes = {
   currentSortType: PropTypes.string.isRequired,
-  changeSortType: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onListItemClick: PropTypes.func.isRequired,
   onListNameClick: PropTypes.func.isRequired

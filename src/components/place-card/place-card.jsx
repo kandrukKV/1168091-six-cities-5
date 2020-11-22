@@ -14,7 +14,14 @@ class PlaceCard extends PureComponent {
 
   render() {
 
-    const {card, onMouseOverHandler, itemClassName, wrapClassName, imageWidth, imageHeight} = this.props;
+    const {
+      card,
+      onMouseOverHandler,
+      itemClassName,
+      wrapClassName,
+      imageWidth,
+      imageHeight
+    } = this.props;
 
     const {
       id,

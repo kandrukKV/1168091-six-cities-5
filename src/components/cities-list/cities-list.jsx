@@ -18,11 +18,10 @@ class CitiesList extends PureComponent {
               {
                 cities.map((city) => {
                   return (
-                    <li key={city} className="locations__item">
+                    <li key={city} className="locations__item" onClick={() => changeCity(city)}>
                       <NavLink
                         to={`/`}
                         className={`locations__item-link tabs__item ${city === currentCity ? `tabs__item--active` : ``}`}
-                        onClick={() => changeCity(city)}
                       >
                         <span>{city}</span>
                       </NavLink>

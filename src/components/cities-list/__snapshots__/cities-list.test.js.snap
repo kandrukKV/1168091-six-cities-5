@@ -18,6 +18,7 @@ Array [
       >
         <li
           className="locations__item"
+          onClick={[Function]}
         >
           <a
             aria-current="page"
@@ -33,6 +34,7 @@ Array [
         </li>
         <li
           className="locations__item"
+          onClick={[Function]}
         >
           <a
             aria-current="page"
