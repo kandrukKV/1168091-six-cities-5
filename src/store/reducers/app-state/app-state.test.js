@@ -1,6 +1,6 @@
 import {appState} from "./app-state";
 import {ActionType} from "../../action";
-import {mockOffers, mosckReviews} from "../../../test-data/test-data";
+import {mockOffers} from "../../../test-data/test-data";
 import {CITIES, SortType, ReviewFormState, STARTING_CITY} from "../../../const";
 
 describe(`app-state reducer testing`, () => {
