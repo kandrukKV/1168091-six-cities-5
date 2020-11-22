@@ -19,7 +19,7 @@ export default PropTypes.shape({
   previewImage: PropTypes.string.isRequired,
   bedrooms: PropTypes.number.isRequired,
   adults: PropTypes.number.isRequired,
-  goods: PropTypes.array.isRequired,
+  additions: PropTypes.array.isRequired,
   owner: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,

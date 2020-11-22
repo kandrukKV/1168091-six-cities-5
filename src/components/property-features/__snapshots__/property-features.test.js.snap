@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyFeatures is rendered correctly 1`] = `
+<ul
+  className="property__features"
+>
+  <li
+    className="property__feature property__feature--entire"
+  >
+    type
+  </li>
+  <li
+    className="property__feature property__feature--bedrooms"
+  >
+    1
+     Bedrooms
+  </li>
+  <li
+    className="property__feature property__feature--adults"
+  >
+    Max 
+    2
+     adults
+  </li>
+</ul>
+`;

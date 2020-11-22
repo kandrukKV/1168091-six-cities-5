@@ -90,8 +90,8 @@ export const updateOffers = (offers, newOffer) => {
   return offers;
 };
 
-export const deleteOffer = (offers, delOffer) => {
-  const index = offers.findIndex((offer) => offer.id === delOffer.id);
+export const updateFavoriteOffers = (offers, newOffer) => {
+  const index = offers.findIndex((offer) => offer.id === newOffer.id);
   if (index > -1) {
     return [
       ...offers.slice(0, index),

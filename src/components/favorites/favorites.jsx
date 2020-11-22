@@ -8,6 +8,7 @@ import FavoritesList from "../favorites-list/favorites-list";
 import FavoritesEmpty from "../favorites-empty/favorites-empty";
 import {AppRoute} from "../../const";
 import {fetchFavoriteOffersList} from "../../store/api-actions";
+import placeCardProp from "../place-card/place-card.prop";
 
 class Favorites extends PureComponent {
 
@@ -55,7 +56,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Favorites.propTypes = {
-  favoriteOffers: PropTypes.array.isRequired,
+  favoriteOffers: PropTypes.arrayOf(PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    offers: PropTypes.arrayOf(placeCardProp).isRequired
+  })),
   getFavoriteOffers: PropTypes.func.isRequired
 };
 

@@ -32,12 +32,11 @@ Promise.all([
   store.dispatch(fetchOffersList()),
   store.dispatch(checkAuth())
 ])
-.then(() => {
-  ReactDOM.render(
-      <Provider store={store}>
-        <App/>
-      </Provider>,
-      document.querySelector(`#root`)
-  );
-});
-
+  .then(() => {
+    ReactDOM.render(
+        <Provider store={store}>
+          <App/>
+        </Provider>,
+        document.querySelector(`#root`)
+    );
+  });

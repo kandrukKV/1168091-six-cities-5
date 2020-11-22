@@ -1,4 +1,10 @@
-export const STAR_VALUES = [5, 4, 3, 2, 1];
+export const STAR_VALUES = [
+  {starValue: 5, title: `perfect`},
+  {starValue: 4, title: `good`},
+  {starValue: 3, title: `not bad`},
+  {starValue: 2, title: `badly`},
+  {starValue: 1, title: `terribly`},
+];
 
 export const FILTER_ITEMS = [
   `Popular`,
@@ -38,6 +44,8 @@ export const APIRoute = {
 
 export const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
+export const STARTING_CITY = `Amsterdam`;
+
 export const FavoriteStatus = {
   YES: `1`,
   NO: `0`
@@ -61,4 +69,16 @@ export const defaultMapIcon = {
 export const activeMapIcon = {
   iconUrl: `img/pin-active.svg`,
   iconSize: [30, 30]
+};
+
+export const ReviewFormProperty = {
+  MINLENGTH: 50,
+  MAXLENGTH: 500
+};
+
+export const ReviewFormState = {
+  SENDING_ERROR: `SENDING_ERROR`,
+  EDITING: `EDITING`,
+  POSTING_COMMENT: `POSTING_COMMENT`,
+  DEFAULT: `DEFAULT`
 };

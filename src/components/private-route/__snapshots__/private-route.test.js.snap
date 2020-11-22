@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute is rendered correctly with AuthorizationStatus.AUTH 1`] = `
+<Route
+  exact={true}
+  path="/"
+  render={[Function]}
+/>
+`;
+
+exports[`PrivateRoute is rendered correctly with AuthorizationStatus.NO_AUTH 1`] = `
+<Route
+  exact={true}
+  path="/"
+  render={[Function]}
+/>
+`;

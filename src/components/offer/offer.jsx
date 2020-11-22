@@ -5,16 +5,12 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import OfferDetails from "../offer-details/offer-details";
 import placeCardProp from "../place-card/place-card.prop";
-import withPlaceCardList from "../hocs/with-place-card-list/with-place-card-list";
 import PlaceCardList from "../place-card-list/place-card-list";
 import {getCurrentOfferSelector, getReviewsSelector, getNearPlacesSelector} from "../../store/selectors";
 import {setActiveCardAction} from "../../store/action";
 
 import Map from "../map/map";
 import Preloader from "../preloader/preloader";
-
-
-const PlaceCardListWrapped = withPlaceCardList(PlaceCardList);
 
 class Offer extends PureComponent {
   constructor(props) {
@@ -27,7 +23,7 @@ class Offer extends PureComponent {
   }
 
   componentWillUnmount() {
-    this.props.setNullActiveCard();
+    this.props.removeActiveCard();
   }
 
   render() {
@@ -55,7 +51,7 @@ class Offer extends PureComponent {
           <div className="container">
             <section className="near-places places">
               <h2 className="near-places__title">Other places in the neighbourhood</h2>
-              <PlaceCardListWrapped
+              <PlaceCardList
                 listClassName="near-places__list"
                 itemClassName="near-places__card"
                 wrapClassName="near-places"
@@ -79,7 +75,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCurrentOffer(id) {
     dispatch(loadOfferDetails(id));
   },
-  setNullActiveCard() {
+  removeActiveCard() {
     dispatch(setActiveCardAction(null));
   }
 });
@@ -98,7 +94,7 @@ Offer.propTypes = {
     PropTypes.oneOf([null]).isRequired
   ]),
   getCurrentOffer: PropTypes.func.isRequired,
-  setNullActiveCard: PropTypes.func.isRequired,
+  removeActiveCard: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired

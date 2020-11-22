@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlacesInfo is rendered correctly 1`] = `
+<React.Fragment>
+  <h2
+    className="visually-hidden"
+  >
+    Places
+  </h2>
+  <b
+    className="places__found"
+  >
+    5
+     places to stay in 
+    CityName
+  </b>
+</React.Fragment>
+`;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {changeCityAction, changeSortTypeAction} from "../../store/action";
@@ -8,42 +8,47 @@ import OffersContent from "../offers-content/offers-content";
 import OffersContentEmpty from "../offers-content-empty/offers-content-empty";
 import {getCurrentCitySelector, getCitiesSelector, getCurrentSortTypeSelector, getFilteredOffersSelector} from "../../store/selectors";
 
-const Main = (props) => {
-  const {
-    cards,
-    currentCity,
-    cities,
-    currentSortType,
-    changeCity,
-    changeSortType
-  } = props;
+class Main extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div className="page page--gray page--main">
-      <Header/>
-      <main className={`page__main page__main--index ${cards.length || `page__main--index-empty`}`}>
-        <CitiesList
-          cities={cities}
-          currentCity={currentCity}
-          changeCity={changeCity}
-        />
+  render() {
+    const {
+      cards,
+      currentCity,
+      cities,
+      currentSortType,
+      changeCity,
+      changeSortType
+    } = this.props;
 
-        {
-          cards.length ?
-            <OffersContent
-              cards={cards}
-              currentCity={currentCity}
-              currentSortType={currentSortType}
-              changeSortType={changeSortType}
-            /> :
-            <OffersContentEmpty
-              currentCity={currentCity}
-            />
-        }
-      </main>
-    </div>
-  );
-};
+    return (
+      <div className="page page--gray page--main">
+        <Header/>
+        <main className={`page__main page__main--index ${cards.length || `page__main--index-empty`}`}>
+          <CitiesList
+            cities={cities}
+            currentCity={currentCity}
+            changeCity={changeCity}
+          />
+          {
+            cards.length ?
+              <OffersContent
+                cards={cards}
+                currentCity={currentCity}
+                currentSortType={currentSortType}
+                changeSortType={changeSortType}
+              /> :
+              <OffersContentEmpty
+                currentCity={currentCity}
+              />
+          }
+        </main>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state) => ({
   cards: getFilteredOffersSelector(state),
@@ -58,7 +63,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeSortType(filterName) {
     dispatch(changeSortTypeAction(filterName));
-  }
+  },
 });
 
 Main.propTypes = {

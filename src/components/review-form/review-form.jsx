@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-import {STAR_VALUES} from "../../const";
+import {STAR_VALUES, ReviewFormProperty} from "../../const";
 
 
 const ReviewForm = (props) => {
@@ -8,24 +8,39 @@ const ReviewForm = (props) => {
   const {
     rating,
     value,
-    isSubmit,
+    isFormDisabled,
     onChangeRating,
     onChangeTextArea,
-    onSubmit
+    onSubmit,
   } = props;
 
-  const isDisabled = Boolean(!value || !rating || isSubmit);
+  const isSubmitDisabled =
+    !rating ||
+    value.length < ReviewFormProperty.MINLENGTH ||
+    value.length > ReviewFormProperty.MAXLENGTH;
 
   return (
     <form className="reviews__form form" action="#" method="post" onSubmit={onSubmit}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
-      <div className="reviews__rating-form form__rating" onChange={onChangeRating}>
+      <div className="reviews__rating-form form__rating">
         {
-          STAR_VALUES.map((starValue) => {
+          STAR_VALUES.map(({starValue, title}) => {
             return (
               <Fragment key={`rating-value-${starValue}`}>
-                <input className="form__rating-input visually-hidden" name="rating" value={starValue} id={`${starValue}-stars`} type="radio"/>
-                <label htmlFor={`${starValue}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+                <input
+                  className="form__rating-input visually-hidden"
+                  name="rating" value={starValue}
+                  id={`${starValue}-stars`}
+                  type="radio"
+                  checked={(starValue - rating) === 0}
+                  onChange={onChangeRating}
+                  disabled={isFormDisabled}
+                />
+                <label
+                  htmlFor={`${starValue}-stars`}
+                  className="reviews__rating-label form__rating-label"
+                  title={title}
+                >
                   <svg className="form__star-image" width="37" height="33">
                     <use xlinkHref="#icon-star"></use>
                   </svg>
@@ -42,13 +57,14 @@ const ReviewForm = (props) => {
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
         onChange={onChangeTextArea}
+        disabled={isFormDisabled}
       >
       </textarea>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        <button className="reviews__submit form__submit button" type="submit" disabled={isDisabled}>Submit</button>
+        <button className="reviews__submit form__submit button" type="submit" disabled={isFormDisabled || isSubmitDisabled}>Submit</button>
       </div>
     </form>
   );
@@ -57,7 +73,7 @@ const ReviewForm = (props) => {
 ReviewForm.propTypes = {
   rating: PropTypes.number.isRequired,
   value: PropTypes.string,
-  isSubmit: PropTypes.bool.isRequired,
+  isFormDisabled: PropTypes.bool.isRequired,
   onChangeRating: PropTypes.func.isRequired,
   onChangeTextArea: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired

@@ -22,7 +22,7 @@ const Additions = (props) => {
 };
 
 Additions.propTypes = {
-  additions: PropTypes.array.isRequired
+  additions: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Additions;

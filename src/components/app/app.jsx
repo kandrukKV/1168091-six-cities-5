@@ -3,16 +3,18 @@ import {Router, Switch, Route} from 'react-router-dom';
 import browserHistory from "../../browser-history";
 import Main from "../main/main";
 import Login from "../login/login";
+import withLoginForm from "../../hocs/with-login-form/with-login-form";
 import PrivateRoute from "../private-route/private-route";
 import Favorites from "../favorites/favorites";
 import Offer from "../offer/offer";
 import PageNotFound from "../page-not-found/page-not-found";
 import {AppRoute} from "../../const";
 
+const WrappedLogin = withLoginForm(Login);
+
 
 const App = () => {
 
-  const favoriteCards = [];
   return (
     <Router history={browserHistory}>
       <Switch>
@@ -22,13 +24,13 @@ const App = () => {
         </Route>
 
         <Route exact path={AppRoute.LOGIN}>
-          <Login/>
+          <WrappedLogin/>
         </Route>
 
         <PrivateRoute
           exact
           path={AppRoute.FAVORITES}
-          render={() => <Favorites favoriteCards={favoriteCards}/>}
+          render={() => <Favorites/>}
         />
 
         <Route

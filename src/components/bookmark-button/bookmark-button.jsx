@@ -15,6 +15,7 @@ class BookmarkButton extends PureComponent {
 
   onButtonClickHandler() {
     const {isFavorite, authorizationStatus, cardId, redirectToLoginPage, changeOfferStatus} = this.props;
+
     switch (authorizationStatus) {
       case AuthorizationStatus.NO_AUTH:
         return redirectToLoginPage;
