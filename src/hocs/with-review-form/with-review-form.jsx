@@ -86,7 +86,6 @@ const withReviewForm = (Component) => {
           onChangeTextArea={this.handleChangeTextarea}
           onSubmit={this.handleSubmitForm}
           reviewFormState={reviewFormState}
-          changeRating={this.handleChangeRating2}
         />
       );
     }
