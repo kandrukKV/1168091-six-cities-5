@@ -1,50 +1,41 @@
-import React, {PureComponent} from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import {login} from "../../store/api-actions";
 import {connect} from "react-redux";
 
 const withLoginForm = (Component) => {
-  class WithLoginForm extends PureComponent {
-    constructor(props) {
-      super(props);
-      this.state = {
-        email: ``,
-        password: ``
-      };
+  const WithLoginForm = (props) => {
 
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleChangeEmail = this.handleChangeEmail.bind(this);
-      this.handleChangePassword = this.handleChangePassword.bind(this);
-    }
+    const [email, setEmail] = useState(``);
+    const [password, setPassword] = useState(``);
 
-    handleChangeEmail(evt) {
-      this.setState({email: evt.target.value});
-    }
+    const handleChangeEmail = useCallback((evt) => {
+      setEmail(evt.target.value);
+    });
 
-    handleChangePassword(evt) {
-      this.setState({password: evt.target.value});
-    }
+    const handleChangePassword = useCallback((evt) => {
+      setPassword(evt.target.value);
+    });
 
-    handleSubmit(evt) {
-      const {onSubmit} = this.props;
-      const {email, password} = this.state;
+    const handleSubmit = useCallback((evt) => {
+      const {onSubmit} = props;
+
       evt.preventDefault();
 
       onSubmit({login: email, password});
-    }
+    });
 
-    render() {
-      return (
-        <Component
-          email={this.state.email}
-          password={this.state.password}
-          onChangeEmail={this.handleChangeEmail}
-          onChangePassword={this.handleChangePassword}
-          onSubmitForm={this.handleSubmit}
-        />
-      );
-    }
-  }
+    return (
+      <Component
+        email={email}
+        password={password}
+        onChangeEmail={handleChangeEmail}
+        onChangePassword={handleChangePassword}
+        onSubmitForm={handleSubmit}
+      />
+    );
+
+  };
 
   WithLoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired

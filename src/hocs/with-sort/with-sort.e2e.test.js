@@ -11,7 +11,7 @@ const MockComponent = () => (<div/>);
 
 const MockComponentWrapped = withSort(MockComponent);
 
-it(`Inputs should be empty`, () => {
+it(`Property isOpen should be FALSE`, () => {
   const wrapper = shallow(
       <Provider store={mockStore}>
         <MockComponentWrapped
