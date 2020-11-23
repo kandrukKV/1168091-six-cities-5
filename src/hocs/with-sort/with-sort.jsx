@@ -1,39 +1,30 @@
-import React, {PureComponent} from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from "prop-types";
 
 const withSort = (Component) => {
-  class WithSort extends PureComponent {
-    constructor(props) {
-      super(props);
-      this.state = {
-        isOpen: false,
-      };
+  const WithSort = (props) => {
+    const {changeSortType} = props;
+    const [isOpen, setIsOpen] = useState(false);
 
-      this.handleListNameClick = this.handleListNameClick.bind(this);
-      this.handleListItemClick = this.handleListItemClick.bind(this);
-    }
+    const handleListNameClick = useCallback(() => {
+      setIsOpen((prevIsOpen) => !prevIsOpen);
+    });
 
-    handleListNameClick() {
-      this.setState(() => ({isOpen: !this.state.isOpen}));
-    }
+    const handleListItemClick = useCallback((filterItem) => {
+      changeSortType(filterItem);
+      setIsOpen(() => false);
+    });
 
-    handleListItemClick(filterItem) {
-      this.props.changeSortType(filterItem);
-      this.setState(() => ({isOpen: false}));
-    }
+    return (
+      <Component
+        {...props}
+        isOpen={isOpen}
+        onListItemClick={handleListItemClick}
+        onListNameClick={handleListNameClick}
+      />
+    );
 
-    render() {
-      const {isOpen} = this.state;
-      return (
-        <Component
-          {...this.props}
-          isOpen={isOpen}
-          onListItemClick={this.handleListItemClick}
-          onListNameClick={this.handleListNameClick}
-        />
-      );
-    }
-  }
+  };
 
   WithSort.propTypes = {
     changeSortType: PropTypes.func.isRequired
