@@ -14,7 +14,7 @@ describe(`app-state reducer testing`, () => {
     });
   });
 
-  it(`Reducer checges current city`, () => {
+  it(`Reducer changes current city`, () => {
     expect(appState(
         {
           currentCity: STARTING_CITY,
@@ -28,7 +28,7 @@ describe(`app-state reducer testing`, () => {
     });
   });
 
-  it(`Reducer checges current sort type`, () => {
+  it(`Reducer changes current sort type`, () => {
     expect(appState(
         {
           currentSortType: SortType.POPULAR,
@@ -42,7 +42,7 @@ describe(`app-state reducer testing`, () => {
     });
   });
 
-  it(`Reducer checges current active card`, () => {
+  it(`Reducer changes current active card`, () => {
     expect(appState(
         {
           activeCard: null,
@@ -56,7 +56,7 @@ describe(`app-state reducer testing`, () => {
     });
   });
 
-  it(`Reducer checges current review form state`, () => {
+  it(`Reducer changes current review form state`, () => {
     expect(appState(
         {
           reviewFormState: ReviewFormState.EDITING

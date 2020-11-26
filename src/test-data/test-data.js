@@ -226,7 +226,7 @@ export const mockOffers = [
   }
 ];
 
-export const mosckReviews = [
+export const mockReviews = [
   {
     id: 1,
     user: {

@@ -27,7 +27,6 @@ const FavoritesItem = (props) => {
               imageWidth={FavoritesItemImageSize.WIDTH}
               imageHeight={FavoritesItemImageSize.HEIGHT}
               card={card}
-              onMouseOverHandler={() => {}}
             />
           ))
         }

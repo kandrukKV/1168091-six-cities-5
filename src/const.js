@@ -42,7 +42,7 @@ export const APIRoute = {
   NEARBY: `/nearby`
 };
 
-export const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
+export const MONTHS = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
 export const STARTING_CITY = `Amsterdam`;
 
@@ -61,14 +61,15 @@ export const FavoritesItemImageSize = {
   HEIGHT: 110
 };
 
-export const defaultMapIcon = {
-  iconUrl: `img/pin.svg`,
-  iconSize: [30, 30]
-};
-
-export const activeMapIcon = {
-  iconUrl: `img/pin-active.svg`,
-  iconSize: [30, 30]
+export const MapIcon = {
+  DEFAULT: {
+    iconUrl: `img/pin.svg`,
+    iconSize: [30, 30]
+  },
+  ACTIVE: {
+    iconUrl: `img/pin-active.svg`,
+    iconSize: [30, 30]
+  }
 };
 
 export const ReviewFormProperty = {

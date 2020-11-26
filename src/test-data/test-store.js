@@ -1,5 +1,5 @@
 import configureStore from "redux-mock-store";
-import {mockOffers, mosckReviews, cities} from "../test-data/test-data";
+import {mockOffers, mockReviews, cities} from "../test-data/test-data";
 
 const createStore = configureStore();
 
@@ -9,7 +9,7 @@ const mockStore = createStore({
     favoriteOffers: mockOffers,
     offerDetails: {
       card: mockOffers[0],
-      reviews: mosckReviews,
+      reviews: mockReviews,
       nearPlaces: mockOffers
     }
   },

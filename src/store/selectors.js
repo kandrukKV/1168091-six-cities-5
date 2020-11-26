@@ -1,6 +1,6 @@
 import {NameSpace} from "./reducers/reducer";
 import {createSelector} from 'reselect';
-import {getCurrentCityOffers, sortOfersBy, adaptOffersToClient, adaptOfferToClient, adaptReviewsToClient} from "../utils";
+import {getCurrentCityOffers, sortOffersBy, adaptOffersToClient, adaptOfferToClient, adaptReviewsToClient} from "../utils";
 
 export const getAuthorizationStatusSelector = (state) => state[NameSpace.USER].authorizationStatus;
 
@@ -63,7 +63,7 @@ export const getFilteredOffersSelector = createSelector(
     getOffersSelector,
     getCurrentCitySelector,
     getCurrentSortTypeSelector,
-    (offers, currentCity, currentSortType) => sortOfersBy[currentSortType](getCurrentCityOffers(offers, currentCity).slice())
+    (offers, currentCity, currentSortType) => sortOffersBy[currentSortType](getCurrentCityOffers(offers, currentCity).slice())
 );
 
 export const getReviewFormStateSelector = (state) => state[NameSpace.APP_STATE].reviewFormState;

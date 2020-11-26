@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getActiveCardSelector} from "../../store/selectors";
 import leaflet from "leaflet";
-import {defaultMapIcon, activeMapIcon} from "../../const";
+import {MapIcon} from "../../const";
 import 'leaflet/dist/leaflet.css';
 
 class Map extends PureComponent {
@@ -16,9 +16,9 @@ class Map extends PureComponent {
   _createMarkers(cards) {
     const {activeCard} = this.props;
 
-    const activeIcon = leaflet.icon(activeMapIcon);
+    const activeIcon = leaflet.icon(MapIcon.ACTIVE);
 
-    const defaultIcon = leaflet.icon(defaultMapIcon);
+    const defaultIcon = leaflet.icon(MapIcon.DEFAULT);
 
     let icon = defaultIcon;
 

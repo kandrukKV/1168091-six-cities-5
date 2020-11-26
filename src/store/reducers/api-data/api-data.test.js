@@ -4,7 +4,7 @@ import {apiData} from "./api-data";
 import {ActionType} from "../../action";
 import {fetchOffersList, fetchFavoriteOffersList, loadOfferDetails, setOfferStatus, postComment} from "../../api-actions";
 import {APIRoute} from "../../../const";
-import {mockOffers, mosckReviews} from "../../../test-data/test-data";
+import {mockOffers, mockReviews} from "../../../test-data/test-data";
 
 const api = createAPI(() => {});
 
@@ -62,14 +62,14 @@ describe(`api-data reducer testing`, () => {
           type: ActionType.LOAD_OFFER_DETAILS,
           payload: {
             card: mockOffers[0],
-            reviews: mosckReviews,
+            reviews: mockReviews,
             nearPlaces: mockOffers
           }
         }
     )).toEqual({
       offerDetails: {
         card: mockOffers[0],
-        reviews: mosckReviews,
+        reviews: mockReviews,
         nearPlaces: mockOffers
       }
     });
@@ -86,12 +86,12 @@ describe(`api-data reducer testing`, () => {
         },
         {
           type: ActionType.SET_REVIEWS,
-          payload: mosckReviews
+          payload: mockReviews
         }
     )).toEqual({
       offerDetails: {
         card: null,
-        reviews: mosckReviews,
+        reviews: mockReviews,
         nearPlaces: []
       }
     });
@@ -291,14 +291,14 @@ describe(`Async operation work correctly`, () => {
 
     apiMock
       .onPost(`${APIRoute.COMMENTS}/${commentData.hotelId}`)
-      .reply(200, mosckReviews);
+      .reply(200, mockReviews);
 
     return commentPoster(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(3);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.SET_REVIEWS,
-          payload: mosckReviews,
+          payload: mockReviews,
         });
         expect(dispatch).toHaveBeenNthCalledWith(2, {
           type: ActionType.SET_STATE_REVIEW_FORM,

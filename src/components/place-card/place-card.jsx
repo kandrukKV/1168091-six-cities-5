@@ -16,7 +16,7 @@ class PlaceCard extends PureComponent {
 
     const {
       card,
-      onMouseOverHandler,
+      onMouseOverHandler = () => {},
       itemClassName,
       wrapClassName,
       imageWidth,
@@ -52,7 +52,9 @@ class PlaceCard extends PureComponent {
           </div>
           <Rating rating={rating} className={`place-card`}/>
           <h2 className="place-card__name">
-            <a href="#">{title}</a>
+            <Link to={`${AppRoute.OFFER}/${id}`}>
+              {title}
+            </Link>
           </h2>
           <p className="place-card__type">{type}</p>
         </div>
@@ -63,7 +65,7 @@ class PlaceCard extends PureComponent {
 
 PlaceCard.propTypes = {
   card: placeCardProp,
-  onMouseOverHandler: PropTypes.func.isRequired,
+  onMouseOverHandler: PropTypes.func,
   itemClassName: PropTypes.string.isRequired,
   wrapClassName: PropTypes.string.isRequired,
   imageWidth: PropTypes.number.isRequired,

@@ -35,7 +35,7 @@ export const loadOfferDetails = (id) => (dispatch, _getState, api) => (
       reviews: details[1].data,
       nearPlaces: details[2].data
     }));
-  })
+  }).catch(() => dispatch(redirectToRouteAction(AppRoute.ROOT)))
 );
 
 export const checkAuth = () => (dispatch, _getState, api) => (

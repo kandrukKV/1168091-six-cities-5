@@ -1,13 +1,13 @@
 import React from "react";
 import ShallowRenderer from "react-test-renderer/shallow";
 import ReviewsList from "./reviews-list";
-import {mosckReviews} from "../../test-data/test-data";
+import {mockReviews} from "../../test-data/test-data";
 
 it(`ReviewsList with data is rendered correctly`, () => {
   const renderer = new ShallowRenderer();
   const tree = renderer.render(
       <ReviewsList
-        reviews={mosckReviews}
+        reviews={mockReviews}
       />
   );
   expect(tree).toMatchSnapshot();

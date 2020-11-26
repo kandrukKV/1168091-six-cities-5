@@ -1,4 +1,4 @@
-import {SortType, months} from "./const";
+import {SortType, MONTHS} from "./const";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -10,10 +10,10 @@ export const getCurrentCityOffers = (allOffers, currentCity) => {
 
 export const convertDate = (date) => {
   const currentDate = new Date(date);
-  return `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+  return `${MONTHS[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
 };
 
-export const sortOfersBy = {
+export const sortOffersBy = {
   [SortType.POPULAR]: (cards) => cards,
   [SortType.PRICE_HIGHT_TO_LOW]: (cards) => cards.sort((a, b) => b.price - a.price),
   [SortType.PRICE_LOW_TO_HIGHT]: (cards) => cards.sort((a, b) => b.price - a.price).reverse(),
