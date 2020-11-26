@@ -53,11 +53,11 @@ exports[`PlaceCard is rendered correctly 1`] = `
     <h2
       className="place-card__name"
     >
-      <a
-        href="#"
+      <Link
+        to="/offer/1"
       >
         Perfectly located Castro
-      </a>
+      </Link>
     </h2>
     <p
       className="place-card__type"
