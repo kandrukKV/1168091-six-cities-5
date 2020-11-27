@@ -230,6 +230,7 @@ exports[`FavoritesList is rendered correctly 1`] = `
           ],
         }
       }
+      onCityGroupClick={[Function]}
     />
     <FavoritesItem
       favoritesItem={
@@ -449,6 +450,7 @@ exports[`FavoritesList is rendered correctly 1`] = `
           ],
         }
       }
+      onCityGroupClick={[Function]}
     />
   </ul>
 </section>

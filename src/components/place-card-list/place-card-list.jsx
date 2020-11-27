@@ -40,12 +40,6 @@ const PlaceCardList = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeActiveCard(activeCard) {
-    dispatch(setActiveCardAction(activeCard));
-  }
-});
-
 PlaceCardList.propTypes = {
   cards: PropTypes.array.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
@@ -55,6 +49,12 @@ PlaceCardList.propTypes = {
   imageWidth: PropTypes.number,
   imageHeight: PropTypes.number
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  changeActiveCard(activeCard) {
+    dispatch(setActiveCardAction(activeCard));
+  }
+});
 
 export {PlaceCardList};
 export default connect(null, mapDispatchToProps)(PlaceCardList);

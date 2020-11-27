@@ -1,20 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
+import {NavLink} from "react-router-dom";
+import {AppRoute} from "../../const";
 import {FavoritesItemImageSize} from "../../const";
 import placeCardProp from "../place-card/place-card.prop";
 
-const FavoritesItem = (props) => {
+const FavoritesItem = ({favoritesItem, onCityGroupClick}) => {
 
-  const {cityName, offers} = props.favoritesItem;
+  const {cityName, offers} = favoritesItem;
 
   return (
     <li className="favorites__locations-items">
       <div className="favorites__locations locations locations--current">
         <div className="locations__item">
-          <a className="locations__item-link" href="#">
+          <NavLink
+            className="locations__item-link" to={AppRoute.ROOT}
+            onClick={() => onCityGroupClick(cityName)}
+          >
             <span>{cityName}</span>
-          </a>
+          </NavLink>
         </div>
       </div>
       <div className="favorites__places">
@@ -39,7 +44,8 @@ FavoritesItem.propTypes = {
   favoritesItem: PropTypes.shape({
     cityName: PropTypes.string.isRequired,
     offers: PropTypes.arrayOf(placeCardProp).isRequired
-  })
+  }),
+  onCityGroupClick: PropTypes.func.isRequired
 };
 
 export default FavoritesItem;

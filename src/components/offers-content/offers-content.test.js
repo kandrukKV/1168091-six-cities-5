@@ -10,7 +10,7 @@ it(`OffersContent is rendered correctly with offers`, () => {
         cards={mockOffers}
         currentCity={mockOffers[0].city.name}
         currentSortType={`sortType`}
-        changeSortType={noon}
+        onChangeSortType={noon}
       />
   );
   expect(tree).toMatchSnapshot();

@@ -10,9 +10,9 @@ it(`Main is rendered correctly with offers`, () => {
         cities={cities}
         cards={mockOffers}
         currentCity={mockOffers[0].city.name}
-        changeCity={noon}
+        onChangeCity={noon}
         currentSortType={`sortType`}
-        changeSortType={noon}
+        onChangeSortType={noon}
       />
   );
   expect(tree).toMatchSnapshot();
@@ -25,9 +25,9 @@ it(`Main is rendered correctly with out offers`, () => {
         cities={cities}
         cards={[]}
         currentCity={mockOffers[0].city.name}
-        changeCity={noon}
+        onChangeCity={noon}
         currentSortType={`sortType`}
-        changeSortType={noon}
+        onChangeSortType={noon}
       />
   );
   expect(tree).toMatchSnapshot();

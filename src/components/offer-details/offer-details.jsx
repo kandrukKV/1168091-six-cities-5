@@ -47,7 +47,7 @@ const OfferDetails = (props) => {
             />
           </div>
 
-          <Rating rating={card.rating} className={`property`}/>
+          <Rating rating={card.rating} className={`property`} isExactly={true}/>
 
           <PropertyFeatures type={card.type} bedrooms={card.bedrooms} adults={card.adults}/>
 

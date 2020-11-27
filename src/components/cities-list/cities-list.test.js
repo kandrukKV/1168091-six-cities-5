@@ -12,7 +12,7 @@ it(`CitiesList is rendered correctly`, () => {
         <CitiesList
           cities={cities}
           currentCity={currentCity}
-          changeCity={noon}
+          onChangeCity={noon}
         />
       </Router>
   ).toJSON();

@@ -13,7 +13,7 @@ const OffersContent = (props) => {
     cards,
     currentCity,
     currentSortType,
-    changeSortType
+    onChangeSortType
   } = props;
 
   return (
@@ -21,7 +21,7 @@ const OffersContent = (props) => {
       <div className="cities__places-container container">
         <section className="cities__places places">
           <PlacesInfo cards={cards} cityName={currentCity}/>
-          <SortWrapped currentSortType={currentSortType} changeSortType={changeSortType}/>
+          <SortWrapped currentSortType={currentSortType} onChangeSortType={onChangeSortType}/>
           <PlaceCardList
             cards={cards}
             className={`cities`}
@@ -39,7 +39,7 @@ OffersContent.propTypes = {
   cards: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   currentSortType: PropTypes.string.isRequired,
-  changeSortType: PropTypes.func.isRequired,
+  onChangeSortType: PropTypes.func.isRequired,
 };
 
 export default OffersContent;

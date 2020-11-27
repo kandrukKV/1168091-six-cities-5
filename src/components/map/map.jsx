@@ -97,10 +97,6 @@ class Map extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  activeCard: getActiveCardSelector(state)
-});
-
 Map.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     location: PropTypes.shape({
@@ -114,6 +110,10 @@ Map.propTypes = {
     PropTypes.object.isRequired
   ])
 };
+
+const mapStateToProps = (state) => ({
+  activeCard: getActiveCardSelector(state)
+});
 
 export {Map};
 export default connect(mapStateToProps)(Map);

@@ -16,7 +16,7 @@ export const convertDate = (date) => {
 export const sortOffersBy = {
   [SortType.POPULAR]: (cards) => cards,
   [SortType.PRICE_HIGHT_TO_LOW]: (cards) => cards.sort((a, b) => b.price - a.price),
-  [SortType.PRICE_LOW_TO_HIGHT]: (cards) => cards.sort((a, b) => b.price - a.price).reverse(),
+  [SortType.PRICE_LOW_TO_HIGHT]: (cards) => cards.sort((a, b) => a.price - b.price),
   [SortType.TOP_RATED_FIRST]: (cards) => cards.sort((a, b) => b.rating - a.rating)
 };
 
@@ -72,8 +72,7 @@ export const adaptReviewsToClient = (reviews) => {
       avatar: review.user.avatar_url
     }
   }))
-  .sort((a, b) => Date.parse(a.date) < Date.parse(b.date) ? 1 : -1)
-  .slice(0, 10);
+  .sort((a, b) => Date.parse(a.date) < Date.parse(b.date) ? 1 : -1);
 };
 
 export const updateOffers = (offers, newOffer) => {

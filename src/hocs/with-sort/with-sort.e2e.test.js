@@ -16,7 +16,7 @@ it(`Property isOpen should be FALSE`, () => {
       <Provider store={mockStore}>
         <MockComponentWrapped
           isOpen={false}
-          changeSortType={() => {}}
+          onChangeSortType={() => {}}
           onListItemClick={() => {}}
           onListNameClick={() => {}}
         />

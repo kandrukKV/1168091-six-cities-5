@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import FavoritesItem from "../favorites-item/favorites-item";
 
-const FavoritesList = (props) => {
-
-  const {favoriteOffers} = props;
+const FavoritesList = ({favoriteOffers, onCityGroupClick}) => {
 
   return (
     <section className="favorites">
@@ -15,6 +13,7 @@ const FavoritesList = (props) => {
             <FavoritesItem
               key={`favorite-item-${favoriteOffer.cityName}`}
               favoritesItem={favoriteOffer}
+              onCityGroupClick={onCityGroupClick}
             />
           ))
         }
@@ -24,7 +23,8 @@ const FavoritesList = (props) => {
 };
 
 FavoritesList.propTypes = {
-  favoriteOffers: PropTypes.array.isRequired
+  favoriteOffers: PropTypes.array.isRequired,
+  onCityGroupClick: PropTypes.func.isRequired
 };
 
 export default FavoritesList;

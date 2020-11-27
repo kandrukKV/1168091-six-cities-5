@@ -228,8 +228,8 @@ exports[`OffersContent is rendered correctly with offers 1`] = `
         cityName="Amsterdam"
       />
       <WithSort
-        changeSortType={[Function]}
         currentSortType="sortType"
+        onChangeSortType={[Function]}
       />
       <Memo(Connect(PlaceCardList))
         cards={

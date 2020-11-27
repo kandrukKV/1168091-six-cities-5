@@ -10,14 +10,15 @@ exports[`FavoritesItem is rendered correctly 1`] = `
     <div
       className="locations__item"
     >
-      <a
+      <NavLink
         className="locations__item-link"
-        href="#"
+        onClick={[Function]}
+        to="/"
       >
         <span>
           City1
         </span>
-      </a>
+      </NavLink>
     </div>
   </div>
   <div

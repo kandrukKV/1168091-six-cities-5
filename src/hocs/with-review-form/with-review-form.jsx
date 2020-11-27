@@ -14,9 +14,9 @@ const withReviewForm = (Component) => {
     const [rating, setRating] = useState(0);
     const [isFormDisabled, setIsFormDisabled] = useState(false);
 
-    useEffect(() => setFormState(reviewFormState));
-
     const {authorizationStatus, reviewFormState} = props;
+
+    useEffect(() => setFormState(reviewFormState), [reviewFormState]);
 
     const handleChangeRating = useCallback((evt) => {
       setRating(parseInt(evt.target.value, 10));
@@ -69,6 +69,13 @@ const withReviewForm = (Component) => {
     );
   };
 
+  WithReviewForm.propTypes = {
+    authorizationStatus: PropTypes.string.isRequired,
+    cardId: PropTypes.number.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    reviewFormState: PropTypes.string.isRequired
+  };
+
   const mapStateToProps = (state) => ({
     authorizationStatus: getAuthorizationStatusSelector(state),
     reviewFormState: getReviewFormStateSelector(state)
@@ -80,13 +87,6 @@ const withReviewForm = (Component) => {
       dispatch(postComment({comment, rating, hotelId}));
     }
   });
-
-  WithReviewForm.propTypes = {
-    authorizationStatus: PropTypes.string.isRequired,
-    cardId: PropTypes.number.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    reviewFormState: PropTypes.string.isRequired
-  };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithReviewForm);
 };

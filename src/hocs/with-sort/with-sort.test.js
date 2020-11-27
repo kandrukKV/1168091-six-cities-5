@@ -17,7 +17,7 @@ it(`withSort is rendered correctly`, () => {
         isOpen={true}
         onListItemClick={noon}
         onListNameClick={noon}
-        changeSortType={noon}
+        onChangeSortType={noon}
       />
   ).toJSON();
 

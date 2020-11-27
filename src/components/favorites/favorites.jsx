@@ -8,6 +8,7 @@ import FavoritesList from "../favorites-list/favorites-list";
 import FavoritesEmpty from "../favorites-empty/favorites-empty";
 import {AppRoute} from "../../const";
 import {fetchFavoriteOffersList} from "../../store/api-actions";
+import {changeCityAction} from "../../store/action";
 import placeCardProp from "../place-card/place-card.prop";
 
 class Favorites extends PureComponent {
@@ -22,7 +23,7 @@ class Favorites extends PureComponent {
 
   render() {
 
-    const {favoriteOffers} = this.props;
+    const {favoriteOffers, setCurrentSity} = this.props;
 
     return (
       <div className="page">
@@ -31,7 +32,7 @@ class Favorites extends PureComponent {
           <div className="page__favorites-container container">
             { !favoriteOffers.length
               ? <FavoritesEmpty/>
-              : <FavoritesList favoriteOffers={favoriteOffers}/>
+              : <FavoritesList favoriteOffers={favoriteOffers} onCityGroupClick={setCurrentSity}/>
             }
           </div>
         </main>
@@ -45,6 +46,15 @@ class Favorites extends PureComponent {
   }
 }
 
+Favorites.propTypes = {
+  favoriteOffers: PropTypes.arrayOf(PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    offers: PropTypes.arrayOf(placeCardProp).isRequired
+  })),
+  getFavoriteOffers: PropTypes.func.isRequired,
+  setCurrentSity: PropTypes.func.isRequired
+};
+
 const mapStateToProps = (state) => ({
   favoriteOffers: getFavoriteOffersSelector(state)
 });
@@ -52,16 +62,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getFavoriteOffers() {
     dispatch(fetchFavoriteOffersList());
+  },
+  setCurrentSity(city) {
+    dispatch(changeCityAction(city));
   }
 });
-
-Favorites.propTypes = {
-  favoriteOffers: PropTypes.arrayOf(PropTypes.shape({
-    cityName: PropTypes.string.isRequired,
-    offers: PropTypes.arrayOf(placeCardProp).isRequired
-  })),
-  getFavoriteOffers: PropTypes.func.isRequired
-};
 
 export {Favorites};
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

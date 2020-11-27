@@ -8,7 +8,7 @@ class CitiesList extends PureComponent {
   }
 
   render() {
-    const {cities, currentCity, changeCity} = this.props;
+    const {cities, currentCity, onChangeCity} = this.props;
     return (
       <Fragment>
         <h1 className="visually-hidden">Cities</h1>
@@ -18,7 +18,7 @@ class CitiesList extends PureComponent {
               {
                 cities.map((city) => {
                   return (
-                    <li key={city} className="locations__item" onClick={() => changeCity(city)}>
+                    <li key={city} className="locations__item" onClick={() => onChangeCity(city)}>
                       <NavLink
                         to={`/`}
                         className={`locations__item-link tabs__item ${city === currentCity ? `tabs__item--active` : ``}`}
@@ -40,7 +40,7 @@ class CitiesList extends PureComponent {
 CitiesList.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
-  changeCity: PropTypes.func.isRequired
+  onChangeCity: PropTypes.func.isRequired
 };
 
 export default CitiesList;

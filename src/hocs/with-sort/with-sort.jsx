@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const withSort = (Component) => {
   const WithSort = (props) => {
-    const {changeSortType} = props;
+    const {onChangeSortType} = props;
     const [isOpen, setIsOpen] = useState(false);
 
     const handleListNameClick = useCallback(() => {
@@ -11,7 +11,7 @@ const withSort = (Component) => {
     });
 
     const handleListItemClick = useCallback((filterItem) => {
-      changeSortType(filterItem);
+      onChangeSortType(filterItem);
       setIsOpen(() => false);
     });
 
@@ -27,7 +27,7 @@ const withSort = (Component) => {
   };
 
   WithSort.propTypes = {
-    changeSortType: PropTypes.func.isRequired
+    onChangeSortType: PropTypes.func.isRequired
   };
 
   return WithSort;

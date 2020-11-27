@@ -1,4 +1,6 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
+import {AppRoute} from "../../const";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 
@@ -48,9 +50,9 @@ const Login = (props) => {
           </section>
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <a className="locations__item-link" href="#">
+              <NavLink className="locations__item-link" to={AppRoute.ROOT}>
                 <span>Amsterdam</span>
-              </a>
+              </NavLink>
             </div>
           </section>
         </div>

@@ -9,7 +9,6 @@ exports[`Main is rendered correctly with offers 1`] = `
     className="page__main page__main--index 5"
   >
     <CitiesList
-      changeCity={[Function]}
       cities={
         Array [
           "Amsterdam",
@@ -17,6 +16,7 @@ exports[`Main is rendered correctly with offers 1`] = `
         ]
       }
       currentCity="Amsterdam"
+      onChangeCity={[Function]}
     />
     <OffersContent
       cards={
@@ -233,9 +233,9 @@ exports[`Main is rendered correctly with offers 1`] = `
           },
         ]
       }
-      changeSortType={[Function]}
       currentCity="Amsterdam"
       currentSortType="sortType"
+      onChangeSortType={[Function]}
     />
   </main>
 </div>
@@ -250,7 +250,6 @@ exports[`Main is rendered correctly with out offers 1`] = `
     className="page__main page__main--index page__main--index-empty"
   >
     <CitiesList
-      changeCity={[Function]}
       cities={
         Array [
           "Amsterdam",
@@ -258,6 +257,7 @@ exports[`Main is rendered correctly with out offers 1`] = `
         ]
       }
       currentCity="Amsterdam"
+      onChangeCity={[Function]}
     />
     <OffersContentEmpty
       currentCity="Amsterdam"

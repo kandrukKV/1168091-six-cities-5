@@ -16,7 +16,7 @@ it(`Another city must be chosen`, () => {
       <CitiesList
         cities={mockCities}
         currentCity={mockCities[0]}
-        changeCity={changeCity}
+        onChangeCity={changeCity}
       />
   );
 

@@ -10,10 +10,10 @@ class BookmarkButton extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.onButtonClickHandler = this.onButtonClickHandler.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  onButtonClickHandler() {
+  handleButtonClick() {
     const {isFavorite, authorizationStatus, cardId, redirectToLoginPage, changeOfferStatus} = this.props;
 
     switch (authorizationStatus) {
@@ -39,18 +39,29 @@ class BookmarkButton extends PureComponent {
 
     return (
       <button
-        onClick={this.onButtonClickHandler()}
+        onClick={this.handleButtonClick()}
         className={`${className}__bookmark-button ${buttonClassActive} button`}
         type="button"
       >
         <svg className={`place-card__bookmark-icon`} width={buttonWidth} height={buttonHeight}>
-          <use xlinkHref="#icon-bookmark"></use>
+          <use xlinkHref="#icon-bookmark"/>
         </svg>
         <span className="visually-hidden">To bookmarks</span>
       </button>
     );
   }
 }
+
+BookmarkButton.propTypes = {
+  isFavorite: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  buttonWidth: PropTypes.number,
+  buttonHeight: PropTypes.number,
+  authorizationStatus: PropTypes.string.isRequired,
+  cardId: PropTypes.number.isRequired,
+  redirectToLoginPage: PropTypes.func.isRequired,
+  changeOfferStatus: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatusSelector(state)
@@ -64,17 +75,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setOfferStatus(hotelId, status));
   }
 });
-
-BookmarkButton.propTypes = {
-  isFavorite: PropTypes.bool.isRequired,
-  className: PropTypes.string,
-  buttonWidth: PropTypes.number,
-  buttonHeight: PropTypes.number,
-  authorizationStatus: PropTypes.string.isRequired,
-  cardId: PropTypes.number.isRequired,
-  redirectToLoginPage: PropTypes.func.isRequired,
-  changeOfferStatus: PropTypes.func.isRequired,
-};
 
 export {BookmarkButton};
 export default connect(mapStateToProps, mapDispatchToProps)(BookmarkButton);

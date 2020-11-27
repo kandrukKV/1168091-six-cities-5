@@ -66,6 +66,7 @@ exports[`OfferDetails is rendered correctly with offers 1`] = `
       </div>
       <Rating
         className="property"
+        isExactly={true}
         rating={1}
       />
       <PropertyFeatures

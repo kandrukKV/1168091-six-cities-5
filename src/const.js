@@ -31,7 +31,8 @@ export const AppRoute = {
   LOGIN: `/login`,
   FAVORITES: `/favorites`,
   ROOT: `/`,
-  OFFER: `/offer`
+  OFFER: `/offer`,
+  PAGE_NOT_FOUND: `/page-not-found`
 };
 
 export const APIRoute = {
@@ -83,3 +84,5 @@ export const ReviewFormState = {
   POSTING_COMMENT: `POSTING_COMMENT`,
   DEFAULT: `DEFAULT`
 };
+
+export const MAX_NUMBERS_OF_REVIEWS = 10;

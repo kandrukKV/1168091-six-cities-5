@@ -17,6 +17,7 @@ import {AuthorizationStatus, APIRoute, AppRoute, ReviewFormState} from "../const
 export const fetchOffersList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.HOTELS)
     .then(({data}) => dispatch(loadOffersAction(data)))
+    .catch(() => dispatch(redirectToRouteAction(AppRoute.PAGE_NOT_FOUND)))
 );
 
 export const fetchFavoriteOffersList = () => (dispatch, _getState, api) => (

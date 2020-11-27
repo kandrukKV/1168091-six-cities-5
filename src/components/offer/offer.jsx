@@ -65,21 +65,6 @@ class Offer extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  card: getCurrentOfferSelector(state),
-  reviews: getReviewsSelector(state),
-  nearPlaces: getNearPlacesSelector(state)
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  getCurrentOffer(id) {
-    dispatch(loadOfferDetails(id));
-  },
-  removeActiveCard() {
-    dispatch(setActiveCardAction(null));
-  }
-});
-
 Offer.propTypes = {
   card: PropTypes.oneOfType([
     placeCardProp,
@@ -101,6 +86,21 @@ Offer.propTypes = {
     })
   })
 };
+
+const mapStateToProps = (state) => ({
+  card: getCurrentOfferSelector(state),
+  reviews: getReviewsSelector(state),
+  nearPlaces: getNearPlacesSelector(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getCurrentOffer(id) {
+    dispatch(loadOfferDetails(id));
+  },
+  removeActiveCard() {
+    dispatch(setActiveCardAction(null));
+  }
+});
 
 export {Offer};
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);
