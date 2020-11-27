@@ -2,6 +2,6 @@
 
 exports[`OffersContentEmpty rendered correctly 1`] = `
 <h1>
-  Page not found
+  Page not found or lost connection
 </h1>
 `;
